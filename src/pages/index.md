@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Making Life Clear Again
-image: /img/ta_bg.png
+image: /img/taeye_bg.png
 heading: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
 mainpitch:

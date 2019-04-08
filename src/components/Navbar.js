@@ -1,92 +1,73 @@
 import React from "react";
 import { Link } from "gatsby";
-import github from "../img/github-icon.svg";
-import logo from "../img/logo.svg";
+import { Logo, Menu, Close } from "./Svg";
 
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      active: false,
-      navBarActiveClass: ""
-    };
+    this.state = { btnClick: false };
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: "is-active"
-            })
-          : this.setState({
-              navBarActiveClass: ""
-            });
-      }
-    );
-  };
+  handleClick() {
+    this.setState(state => ({
+      btnClick: !state.btnClick
+    }));
+  }
 
   render() {
+    const menuBtn = this.state.btnClick;
     return (
-      <nav
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: "88px" }} />
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
+      <nav role="navigation" aria-label="main-navigation" className={this.props.classes}>
+        <div className="container mx-auto">
+          <div className="flex items-center justify-between flex-wrap md:py-4 md:px-4 lg:px-4 xl:px-0 xl:py-2">
+            <div className="flex items-center flex-no-shrink text-black pt-2">
+              <div className="text-blue pb-2 pl-8 md:pl-0">
+                <Logo classes={this.props.logo} layout="items-center" svg="" />
+              </div>
             </div>
-          </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
-          >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>
-            </div>
-            <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/AustinGreen/gatsby-netlify-cms-boilerplate"
-                target="_blank"
-                rel="noopener noreferrer"
+            <div className="md:hidden">
+              <button
+                onClick={this.handleClick}
+                className={`${this.props.menuBg} navbar-burger flex items-center px-6 py-4 border-none focus:outline-none`}
+                data-target="navMenu"
               >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
+                {menuBtn ? (
+                  <Menu classes={`fill-current h-5 w-5 ${this.props.menuBtn}`} />
+                ) : (
+                  <Close classes={`fill-current h-5 w-5 ${this.props.menuBtn}`} />
+                )}
+              </button>
+            </div>
+            <div
+              id="navMenu"
+              className=
+                {`w-full flex-grow ${this.props.menuBg} text-gray-700 py-6 md:flex md:flex-initial md:items-center md:w-auto md:bg-transparent md:py-0 ` +
+                (menuBtn ? "block" : "hidden")
+              }
+            >
+              <div className="text-lg flex flex-col text-center md:flex-row md:text-left">
+                <Link
+                  to="/services"
+                  className={`${this.props.navItems} nav-item hover:bg-blue-dark hover:shadow trans-y hover:text-white mt-4 md:mr-8 md:mt-0 lg:mr-8`}
+                >
+                  services
+                </Link>
+                <Link
+                  to="/blog"
+                  className={`${this.props.navItems} block nav-item hover:bg-blue-dark hover:shadow trans-y hover:text-white mt-6 md:mr-8 md:mt-0 lg:mr-8`}
+                >
+                  work
+                </Link>
+                <Link
+                  to="/contact"
+                  className={`${this.props.navItems} block nav-item hover:bg-blue-dark hover:shadow trans-y hover:text-white mt-6 md:mt-0`}
+                >
+                  let's talk
+                </Link>
+
+                {/* <Social classes="flex items-center justify-center my-6 md:hidden" /> */}
+              </div>
             </div>
           </div>
         </div>

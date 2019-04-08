@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Optical';
+  src: url('../fonts/Optician-Sans.otf');
+}
+
+body {
+  @apply font-sans;
+}
+
+.v-center {
+  position: absolute;
+  top:50%;
+  transform:translate(0%, -50%);
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.10);
+}
+
+.text-shadow-md {
+  text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 15px 30px rgba(0,0,0,0.11), 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.text-shadow-none {
+  text-shadow: none;
+}
+
+.max-w-640 {
+  max-width: 640px;
+}
+
+.absolute-center {
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+// .img-circle {
+//   border-radius: 50%;
+//   overflow: hidden;
+//   width: 150px;
+//   height: 150px;
+//   position: relative;
+// }
+
+// .img-bio {
+//   margin: 0 auto;
+//   height: 100%;
+//   width: 100%;
+// }

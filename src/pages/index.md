@@ -2,6 +2,7 @@
 templateKey: index-page
 title: Make The World<br>Clear Again
 image: /img/ta_bg.png
+image2: /img/bottom.png
 heading: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
 mainpitch:

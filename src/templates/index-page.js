@@ -465,13 +465,6 @@ export const pageQuery = graphql`
             }
           }
         }
-        image2 {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
         heading
         subheading
         mainpitch {

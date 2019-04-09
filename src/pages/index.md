@@ -31,6 +31,9 @@ insurance:
     - /img/aetna_logo.svg
     - /img/superior-vision-logo-new.svg
     - /img/unitedhealthcare-vector-logo.svg
+    - /img/eyemed-logo-vector.svg
+    - /img/medicare.png
+    - /img/humana_logo.png
 image2: /img/bottom.png
 ---
 

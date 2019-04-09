@@ -4,6 +4,7 @@ hero:
   image: /img/ta_bg.png
   title: Make the World<br />Clear Again
 services:
+  image: /img/medicine.svg
   item1: Eye Checkups
   item2: Contact Fittings
   item3: Other Services

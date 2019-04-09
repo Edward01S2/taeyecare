@@ -109,7 +109,7 @@ export const IndexPageTemplate = ({
             </div>
           </div>
           <div className="w-1/2">
-            <Doctor className="w-full h-full" />
+            <img className="w-full h-full"  src={services.image.publicURL} />
           </div>
         </div>
       </div>
@@ -476,6 +476,9 @@ export const pageQuery = graphql`
           text2
           item3
           text3
+          image {
+            publicURL
+          }
         }
         image2 {
           childImageSharp {

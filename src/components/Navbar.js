@@ -46,24 +46,30 @@ const Navbar = class extends React.Component {
                 (menuBtn ? "block" : "hidden")
               }
             >
-              <div className="text-lg flex flex-col text-center md:flex-row md:text-left">
+              <div className="text-lg flex flex-col text-center items-center md:flex-row md:text-left">
                 <Link
                   to="/services"
-                  className={`${this.props.navItems} nav-item hover:bg-blue-dark hover:shadow trans-y hover:text-white mt-4 md:mr-8 md:mt-0 lg:mr-8`}
+                  className={`${this.props.navItems} text-gray-700 hover:bg-blue-dark hover:shadow trans-y hover:text-white mt-4 md:mr-8 md:mt-0 lg:mr-8`}
                 >
                   services
                 </Link>
                 <Link
                   to="/blog"
-                  className={`${this.props.navItems} block nav-item hover:bg-blue-dark hover:shadow trans-y hover:text-white mt-6 md:mr-8 md:mt-0 lg:mr-8`}
+                  className={`${this.props.navItems} block text-gray-700 hover:bg-blue-dark hover:shadow trans-y hover:text-white mt-6 md:mr-8 md:mt-0 lg:mr-8`}
                 >
-                  work
+                  about
                 </Link>
                 <Link
                   to="/contact"
-                  className={`${this.props.navItems} block nav-item hover:bg-blue-dark hover:shadow trans-y hover:text-white mt-6 md:mt-0`}
+                  className={`${this.props.navItems} block text-gray-700 hover:bg-blue-dark hover:shadow trans-y hover:text-white mt-6 md:mt-0`}
                 >
-                  let's talk
+                  team
+                </Link>
+                <Link
+                  to="/contact"
+                  className={`${this.props.navItems} bg-ta-blue hover:bg-ta-200 hover:no-underline text-white font-semibold py-2 px-3 rounded ml-4`}
+                >
+                  appointments
                 </Link>
 
                 {/* <Social classes="flex items-center justify-center my-6 md:hidden" /> */}

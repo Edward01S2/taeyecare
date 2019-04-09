@@ -11,6 +11,14 @@ body {
   @apply font-sans;
 }
 
+a {
+  @apply text-blue-500;
+}
+
+a:hover {
+  @apply underline cursor-pointer;
+}
+
 .v-center {
   position: absolute;
   top:50%;

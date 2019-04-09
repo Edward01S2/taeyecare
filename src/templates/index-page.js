@@ -13,6 +13,7 @@ import Clip from "../img/clipboard.svg";
 import Check from "../img/user-check.svg";
 
 import Layout from "../components/Layout";
+import Form from "../components/Form";
 //import Features from '../components/Features'
 //import BlogRoll from '../components/BlogRoll'
 
@@ -22,6 +23,7 @@ function createMarkup(cms) {
 
 export const IndexPageTemplate = ({
   image,
+  image2,
   title,
   heading,
   subheading,
@@ -57,7 +59,7 @@ export const IndexPageTemplate = ({
               Services
             </h3>
             <div className="pb-8">
-            <div className="flex content-center items-center mb-2">
+            <div className="flex content-center items-center mb-3">
               <div className="relative mr-4">
                 <svg className="z-0 fill-current text-ta-100 h-10 w-10" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="50" cy="50" r="50"/>
@@ -77,7 +79,7 @@ export const IndexPageTemplate = ({
               </p>
             </div>
             <div className="pb-8">
-            <div className="flex content-center items-center mb-2">
+            <div className="flex content-center items-center mb-3">
               <div className="relative mr-4">
                 <svg className="z-0 fill-current text-ta-100 h-10 w-10" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="50" cy="50" r="50"/>
@@ -96,7 +98,7 @@ export const IndexPageTemplate = ({
               </p>
             </div>
             <div className="">
-            <div className="flex content-center items-center mb-2">
+            <div className="flex content-center items-center mb-3">
               <div className="relative mr-4">
                 <svg className="z-0 fill-current text-ta-100 h-10 w-10" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="50" cy="50" r="50"/>
@@ -141,7 +143,7 @@ export const IndexPageTemplate = ({
               and bring it with you. You can call us at 888-888-8888 or book an
               appointment online below.
             </p>
-            <button className="bg-ta-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <button className="bg-ta-blue hover:bg-ta-300 text-white font-bold py-4 px-6 rounded">
               Book Appointment
             </button>
           </div>
@@ -206,7 +208,7 @@ export const IndexPageTemplate = ({
 
                   <h3 className="font-semibold text-black pb-2">Location</h3>
                   <ul className="pb-4">
-                    <li className="flex content-center items-center mb-2">
+                    <li className="flex content-center items-center mb-3">
                       <div className="relative mr-2">
                         <svg className="z-0 fill-current text-ta-100 h-8 w-8" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                           <circle cx="50" cy="50" r="50"/>
@@ -215,7 +217,7 @@ export const IndexPageTemplate = ({
                       </div>
                       <p>(888) 888-8888</p>
                     </li>
-                    <li className="flex content-center items-center mb-2">
+                    <li className="flex content-center items-center mb-3">
                       <div className="relative mr-2">
                         <svg className="z-0 fill-current text-ta-100 h-8 w-8" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                           <circle cx="50" cy="50" r="50"/>
@@ -224,7 +226,7 @@ export const IndexPageTemplate = ({
                       </div>
                       <p>(888) 888-8888</p>
                     </li>
-                    <li className="flex content-center items-center mb-2">
+                    <li className="flex content-center items-center mb-3">
                       <div className="relative mr-2">
                         <svg className="z-0 fill-current text-ta-100 h-8 w-8" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                           <circle cx="50" cy="50" r="50"/>
@@ -409,6 +411,11 @@ export const IndexPageTemplate = ({
         </div>
         </section>
 
+        <section className="bg-gray-100 pt-24">
+          <Form/>
+          <Img fluid={image2.childImageSharp.fluid} className="z-0"/>
+        </section>
+
 
   </div>
 );
@@ -432,6 +439,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <IndexPageTemplate
         image={frontmatter.image}
+        image2={frontmatter.image2}
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
@@ -459,6 +467,13 @@ export const pageQuery = graphql`
       frontmatter {
         title
         image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        image2 {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid

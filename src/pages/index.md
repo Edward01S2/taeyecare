@@ -20,6 +20,11 @@ services:
   text3: >-
     Dry eye treatment, glaucoma testing, macular degeneration and cataract
     evaluation.
+appointment:
+  book: >-
+    https://www.eyeexamsnow.com/TexasFlow?catalogId=11651&storeId=10851&langId=-1&clearExams=1&storeNumber=0275
+  image: /img/appt.svg
+  patient: /img/patient-info.doc
 image2: /img/bottom.png
 heading: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup

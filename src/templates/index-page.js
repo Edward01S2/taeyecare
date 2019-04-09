@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
-import Doctor from "../img/medicine.svg";
-import Appt from "../img/appt.svg";
+
 import BlueCross from "../img/bcbs.svg";
 import Phone from "../img/phone-call.svg";
 import Fax from "../img/file-text.svg";
@@ -14,8 +13,6 @@ import Check from "../img/user-check.svg";
 
 import Layout from "../components/Layout";
 import Form from "../components/Form";
-//import Features from '../components/Features'
-//import BlogRoll from '../components/BlogRoll'
 
 function createMarkup(cms) {
   return { __html: cms };
@@ -24,6 +21,7 @@ function createMarkup(cms) {
 export const IndexPageTemplate = ({
   hero,
   services,
+  appt,
   image2,
   heading,
   subheading,
@@ -109,16 +107,16 @@ export const IndexPageTemplate = ({
             </div>
           </div>
           <div className="w-1/2">
-            <img className="w-full h-full"  src={services.image.publicURL} />
+            <img className="w-full h-full"  src={services.image.publicURL} alt=""/>
           </div>
         </div>
       </div>
     </section>
 
-    <section className="container mx-auto mb-24">
+    <section className="container mx-auto my-40">
       <div className="flex">
         <div className="w-1/2">
-          <Appt className="w-full h-full" />
+          <img className="w-full h-full"  src={appt.image.publicURL} alt=""/>
         </div>
         <div className="w-1/2">
           <div className="p-16 text-center">
@@ -129,16 +127,20 @@ export const IndexPageTemplate = ({
               Ready to make your appointment? Download the{" "}
               <a
                 className="text-blue-500 hover:underline hover:pointer"
-                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={appt.patient.publicURL}
               >
-                new patient form
-              </a>{" "}
-              and bring it with you. You can call us at 888-888-8888 or book an
+                new patient form {" "}
+              </a>
+              and bring it with you. You can call us at <a href="tel:8174684461">(817) 468-4461</a> or book an
               appointment online below.
             </p>
-            <button className="bg-ta-blue hover:bg-ta-300 text-white font-bold py-4 px-6 rounded">
-              Book Appointment
-            </button>
+            <a href={appt.book} target="_blank" rel="noopener noreferrer">
+              <button className="bg-ta-blue hover:bg-ta-200 text-white text-lg font-bold py-4 px-6 rounded uppercase tracking-wider">
+                Book Appointment
+              </button>
+            </a>
           </div>
         </div>
       </div>
@@ -433,6 +435,7 @@ const IndexPage = ({ data }) => {
       <IndexPageTemplate
         hero={frontmatter.hero}
         services={frontmatter.services}
+        appt={frontmatter.appointment}
         image2={frontmatter.image2}
         title={frontmatter.title}
         heading={frontmatter.heading}
@@ -479,6 +482,15 @@ export const pageQuery = graphql`
           image {
             publicURL
           }
+        }
+        appointment {
+          image {
+            publicURL
+          }
+          patient {
+            publicURL
+          }
+          book
         }
         image2 {
           childImageSharp {

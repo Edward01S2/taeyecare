@@ -3,6 +3,22 @@ templateKey: index-page
 hero:
   image: /img/ta_bg.png
   title: Make the World<br />Clear Again
+services:
+  item1: Eye Checkups
+  item2: Contact Fittings
+  item3: Other Services
+  text1: >-
+    Regardless of your age, a comprehensive eye evaluation is important. We will
+    not only determine your prescription but also examine your eyes for common
+    conditions which can clue us in on the health of your eyes as well as your
+    body.
+  text2: >-
+    An evaluation of the health of the eyes as well as an evaluation of the fit
+    are necessary yearly in order to assure the best fit and health of contacts
+    for the patient.
+  text3: >-
+    Dry eye treatment, glaucoma testing, macular degeneration and cataract
+    evaluation.
 image2: /img/bottom.png
 heading: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup

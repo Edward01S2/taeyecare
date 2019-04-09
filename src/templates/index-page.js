@@ -438,6 +438,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <IndexPageTemplate
         hero={frontmatter.hero}
+        services={frontmatter.services}
         image2={frontmatter.image2}
         title={frontmatter.title}
         heading={frontmatter.heading}
@@ -473,6 +474,14 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+        services {
+          item1
+          text1
+          item2
+          text2
+          item3
+          text3
         }
         image2 {
           childImageSharp {

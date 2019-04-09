@@ -49,19 +49,19 @@ const Navbar = class extends React.Component {
               <div className="text-lg flex flex-col text-center items-center md:flex-row md:text-left">
                 <Link
                   to="/services"
-                  className={`${this.props.navItems} text-gray-700 hover:bg-blue-dark hover:shadow trans-y hover:text-white mt-4 md:mr-8 md:mt-0 lg:mr-8`}
+                  className={`${this.props.navItems} text-gray-700 hover:text-ta-100 hover:no-underline mt-4 md:mr-8 md:mt-0 lg:mr-8`}
                 >
                   services
                 </Link>
                 <Link
                   to="/blog"
-                  className={`${this.props.navItems} block text-gray-700 hover:bg-blue-dark hover:shadow trans-y hover:text-white mt-6 md:mr-8 md:mt-0 lg:mr-8`}
+                  className={`${this.props.navItems} block text-gray-700 hover:text-ta-100 hover:no-underline mt-6 md:mr-8 md:mt-0 lg:mr-8`}
                 >
                   about
                 </Link>
                 <Link
                   to="/contact"
-                  className={`${this.props.navItems} block text-gray-700 hover:bg-blue-dark hover:shadow trans-y hover:text-white mt-6 md:mt-0`}
+                  className={`${this.props.navItems} block text-gray-700 hover:text-ta-100 hover:no-underline mt-6 md:mt-0`}
                 >
                   team
                 </Link>

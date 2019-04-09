@@ -23,6 +23,7 @@ function createMarkup(cms) {
 
 export const IndexPageTemplate = ({
   hero,
+  services,
   image2,
   heading,
   subheading,
@@ -66,15 +67,12 @@ export const IndexPageTemplate = ({
                 <Check className="absolute absolute-center z-10 h-5 w-5 text-white stroke-current" />
               </div>
               <h3 className="text-lg font-medium text-gray-800">
-                Eye Checkups
+                {services.item1}
               </h3>
             </div>
 
               <p className="text-gray-700 text-md">
-                Regardless of your age, a comprehensive eye evaluation is
-                important. We will not only determine your prescription but also
-                examine your eyes for common conditions which can clue us in on
-                the health of your eyes as well as your body.
+                {services.text1}
               </p>
             </div>
             <div className="pb-8">
@@ -86,14 +84,11 @@ export const IndexPageTemplate = ({
                 <Eye className="absolute absolute-center z-10 h-5 w-5 text-white stroke-current" />
               </div>
               <h3 className="text-lg font-medium text-gray-800">
-                Contact Fittings
+                {services.item2}
               </h3>
             </div>
               <p className="text-gray-700">
-                Regardless of your age, a comprehensive eye evaluation is
-                important. We will not only determine your prescription but also
-                examine your eyes for common conditions which can clue us in on
-                the health of your eyes as well as your body.
+                {services.text2}
               </p>
             </div>
             <div className="">
@@ -105,12 +100,11 @@ export const IndexPageTemplate = ({
                 <Clip className="absolute absolute-center z-10 h-5 w-5 text-white stroke-current" />
               </div>
               <h3 className="text-lg font-medium text-gray-800">
-                Other Services
+                {services.item3}
               </h3>
             </div>
               <p className="text-gray-700">
-                Regardless of your age, a comprehensive eye evaluation is
-                important.
+                {services.text3}
               </p>
             </div>
           </div>
@@ -419,17 +413,17 @@ export const IndexPageTemplate = ({
   </div>
 );
 
-IndexPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array
-  })
-};
+// IndexPageTemplate.propTypes = {
+//   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+//   title: PropTypes.string,
+//   heading: PropTypes.string,
+//   subheading: PropTypes.string,
+//   mainpitch: PropTypes.object,
+//   description: PropTypes.string,
+//   intro: PropTypes.shape({
+//     blurbs: PropTypes.array
+//   })
+// };
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
@@ -438,7 +432,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <IndexPageTemplate
         hero={frontmatter.hero}
-
+        services={frontmatter.services}
         image2={frontmatter.image2}
         title={frontmatter.title}
         heading={frontmatter.heading}
@@ -474,6 +468,14 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+        services {
+          item1
+          text1
+          item2
+          text2
+          item3
+          text3
         }
         image2 {
           childImageSharp {

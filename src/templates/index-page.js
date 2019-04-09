@@ -23,18 +23,15 @@ export const IndexPageTemplate = ({
   services,
   appt,
   image2,
-  heading,
-  subheading,
-  mainpitch,
-  description,
-  intro
 }) => (
   <div>
     <div
       className="w-screen h-screen flex content-center justify-center"
       style={{
         backgroundImage: `url(${
-          !!hero.image.childImageSharp ? hero.image.childImageSharp.fluid.src : hero.image
+          !!hero.image.childImageSharp
+            ? hero.image.childImageSharp.fluid.src
+            : hero.image
         })`,
         backgroundPosition: `top left`,
         backgroundSize: `cover`,
@@ -57,57 +54,67 @@ export const IndexPageTemplate = ({
               Services
             </h3>
             <div className="pb-8">
-            <div className="flex content-center items-center mb-3">
-              <div className="relative mr-4">
-                <svg className="z-0 fill-current text-ta-100 h-10 w-10" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="50" r="50"/>
-                </svg>
-                <Check className="absolute absolute-center z-10 h-5 w-5 text-white stroke-current" />
+              <div className="flex content-center items-center mb-3">
+                <div className="relative mr-4">
+                  <svg
+                    className="z-0 fill-current text-ta-100 h-10 w-10"
+                    viewBox="0 0 100 100"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="50" cy="50" r="50" />
+                  </svg>
+                  <Check className="absolute absolute-center z-10 h-5 w-5 text-white stroke-current" />
+                </div>
+                <h3 className="text-lg font-medium text-gray-800">
+                  {services.item1}
+                </h3>
               </div>
-              <h3 className="text-lg font-medium text-gray-800">
-                {services.item1}
-              </h3>
-            </div>
 
-              <p className="text-gray-700 text-md">
-                {services.text1}
-              </p>
+              <p className="text-gray-700 text-md">{services.text1}</p>
             </div>
             <div className="pb-8">
-            <div className="flex content-center items-center mb-3">
-              <div className="relative mr-4">
-                <svg className="z-0 fill-current text-ta-100 h-10 w-10" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="50" r="50"/>
-                </svg>
-                <Eye className="absolute absolute-center z-10 h-5 w-5 text-white stroke-current" />
+              <div className="flex content-center items-center mb-3">
+                <div className="relative mr-4">
+                  <svg
+                    className="z-0 fill-current text-ta-100 h-10 w-10"
+                    viewBox="0 0 100 100"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="50" cy="50" r="50" />
+                  </svg>
+                  <Eye className="absolute absolute-center z-10 h-5 w-5 text-white stroke-current" />
+                </div>
+                <h3 className="text-lg font-medium text-gray-800">
+                  {services.item2}
+                </h3>
               </div>
-              <h3 className="text-lg font-medium text-gray-800">
-                {services.item2}
-              </h3>
-            </div>
-              <p className="text-gray-700">
-                {services.text2}
-              </p>
+              <p className="text-gray-700">{services.text2}</p>
             </div>
             <div className="">
-            <div className="flex content-center items-center mb-3">
-              <div className="relative mr-4">
-                <svg className="z-0 fill-current text-ta-100 h-10 w-10" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="50" r="50"/>
-                </svg>
-                <Clip className="absolute absolute-center z-10 h-5 w-5 text-white stroke-current" />
+              <div className="flex content-center items-center mb-3">
+                <div className="relative mr-4">
+                  <svg
+                    className="z-0 fill-current text-ta-100 h-10 w-10"
+                    viewBox="0 0 100 100"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="50" cy="50" r="50" />
+                  </svg>
+                  <Clip className="absolute absolute-center z-10 h-5 w-5 text-white stroke-current" />
+                </div>
+                <h3 className="text-lg font-medium text-gray-800">
+                  {services.item3}
+                </h3>
               </div>
-              <h3 className="text-lg font-medium text-gray-800">
-                {services.item3}
-              </h3>
-            </div>
-              <p className="text-gray-700">
-                {services.text3}
-              </p>
+              <p className="text-gray-700">{services.text3}</p>
             </div>
           </div>
           <div className="w-1/2">
-            <img className="w-full h-full"  src={services.image.publicURL} alt=""/>
+            <img
+              className="w-full h-full"
+              src={services.image.publicURL}
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -116,7 +123,7 @@ export const IndexPageTemplate = ({
     <section className="container mx-auto my-40">
       <div className="flex">
         <div className="w-1/2">
-          <img className="w-full h-full"  src={appt.image.publicURL} alt=""/>
+          <img className="w-full h-full" src={appt.image.publicURL} alt="" />
         </div>
         <div className="w-1/2">
           <div className="p-16 text-center">
@@ -126,15 +133,15 @@ export const IndexPageTemplate = ({
             <p className="pb-8 text-gray-700">
               Ready to make your appointment? Download the{" "}
               <a
-                className="text-blue-500 hover:underline hover:pointer"
                 target="_blank"
                 rel="noopener noreferrer"
                 href={appt.patient.publicURL}
               >
-                new patient form {" "}
+                new patient form{" "}
               </a>
-              and bring it with you. You can call us at <a href="tel:8174684461">(817) 468-4461</a> or book an
-              appointment online below.
+              and bring it with you. You can call us at{" "}
+              <a href="tel:8174684461">(817) 468-4461</a> or book an appointment
+              online below.
             </p>
             <a href={appt.book} target="_blank" rel="noopener noreferrer">
               <button className="bg-ta-blue hover:bg-ta-200 text-white text-lg font-bold py-4 px-6 rounded uppercase tracking-wider">
@@ -200,52 +207,65 @@ export const IndexPageTemplate = ({
             </h3>
             <div className="flex justify-center content-center">
               <div className="w-1/2 pl-4">
-
-                  <h3 className="font-semibold text-black pb-2">Location</h3>
-                  <ul className="pb-4">
-                    <li className="flex content-center items-center mb-3">
-                      <div className="relative mr-2">
-                        <svg className="z-0 fill-current text-ta-100 h-8 w-8" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="50" cy="50" r="50"/>
-                        </svg>
-                        <Phone className="absolute absolute-center z-10 h-4 w-4 text-white stroke-current" />
-                      </div>
-                      <p>(888) 888-8888</p>
-                    </li>
-                    <li className="flex content-center items-center mb-3">
-                      <div className="relative mr-2">
-                        <svg className="z-0 fill-current text-ta-100 h-8 w-8" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="50" cy="50" r="50"/>
-                        </svg>
-                        <Fax className="absolute absolute-center z-10 h-4 w-4 text-white stroke-current" />
-                      </div>
-                      <p>(888) 888-8888</p>
-                    </li>
-                    <li className="flex content-center items-center mb-3">
-                      <div className="relative mr-2">
-                        <svg className="z-0 fill-current text-ta-100 h-8 w-8" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="50" cy="50" r="50"/>
-                        </svg>
-                        <Email className="absolute absolute-center z-10 h-4 w-4 text-white stroke-current" />
-                      </div>
-                      <p>office@taeyecare.com</p>
-                    </li>
-                  </ul>
-                  <p>
-                    <span className="font-medium">
-                      The Parks Mall at Arlington
-                    </span>
-                    <br />
-                    (Btwn Sears and Barnes & Nobles)
-                    <br />
-                    3811 S. Cooper St. Suite #2004
-                    <br />
-                    Arlington, TX 76015
-                  </p>
-                </div>
+                <h3 className="font-semibold text-black pb-2">Location</h3>
+                <ul className="pb-4">
+                  <li className="flex content-center items-center mb-3">
+                    <div className="relative mr-2">
+                      <svg
+                        className="z-0 fill-current text-ta-100 h-8 w-8"
+                        viewBox="0 0 100 100"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle cx="50" cy="50" r="50" />
+                      </svg>
+                      <Phone className="absolute absolute-center z-10 h-4 w-4 text-white stroke-current" />
+                    </div>
+                    <p>(888) 888-8888</p>
+                  </li>
+                  <li className="flex content-center items-center mb-3">
+                    <div className="relative mr-2">
+                      <svg
+                        className="z-0 fill-current text-ta-100 h-8 w-8"
+                        viewBox="0 0 100 100"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle cx="50" cy="50" r="50" />
+                      </svg>
+                      <Fax className="absolute absolute-center z-10 h-4 w-4 text-white stroke-current" />
+                    </div>
+                    <p>(888) 888-8888</p>
+                  </li>
+                  <li className="flex content-center items-center mb-3">
+                    <div className="relative mr-2">
+                      <svg
+                        className="z-0 fill-current text-ta-100 h-8 w-8"
+                        viewBox="0 0 100 100"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle cx="50" cy="50" r="50" />
+                      </svg>
+                      <Email className="absolute absolute-center z-10 h-4 w-4 text-white stroke-current" />
+                    </div>
+                    <p>office@taeyecare.com</p>
+                  </li>
+                </ul>
+                <p>
+                  <span className="font-medium">
+                    The Parks Mall at Arlington
+                  </span>
+                  <br />
+                  (Btwn Sears and Barnes & Nobles)
+                  <br />
+                  3811 S. Cooper St. Suite #2004
+                  <br />
+                  Arlington, TX 76015
+                </p>
+              </div>
 
               <div className="w-1/2">
-                <h3 className="font-semibold text-black text-center pb-2">Hours</h3>
+                <h3 className="font-semibold text-black text-center pb-2">
+                  Hours
+                </h3>
                 <table className="border-collapse text-sm mx-auto">
                   <tbody>
                     <tr>
@@ -287,131 +307,172 @@ export const IndexPageTemplate = ({
 
     <section className="pt-24 pb-16">
       <div className="container mx-auto text-center">
-        <h3 className="text-4xl tracking-widest font-semibold text-center uppercase pb-8">Our Team</h3>
+        <h3 className="text-4xl tracking-widest font-semibold text-center uppercase pb-8">
+          Our Team
+        </h3>
         <div className="flex items-center pb-16">
-          <div className="flex-none img-circle rounded-full h-64 w-64 overflow-hidden shadow-inner" 
+          <div
+            className="flex-none img-circle rounded-full h-64 w-64 overflow-hidden shadow-inner"
             style={{
               backgroundImage: `url(https://www.distinctiveeye.com/img/home-bio-diane.png)`,
               backgroundPosition: `center`,
-              backgroundSize: `cover`,
-            }}>
-          </div>
+              backgroundSize: `cover`
+            }}
+          />
           <div className="flex-shrink text-left pl-16">
             <div className="">
-              <h4 className="text-2xl font-bold border-b-4 border-ta-100 inline-block mb-4">Dr. Diane Ta <span className="text-base font-normal">O.D.</span></h4>
-              <p className="text-gray-700 pb-2">Dr. Diane Ta was born and raised in Myrtle Beach, South Carolina and received her Bachelor of Science in Biological Sciences with a minor in Renaissance Studies from the University of South Carolina. She then moved to Houston where she received her Doctor of Optometry degree from the University of Houston College of Optometry. She is currently licensed to practice therapeutic optometry and is certified as an Optometric Glaucoma Specialist. She is an active member of the Texas Optometric Association, the American Optometric Association as well as the local Tarrant County Optometric Association. Dr. Ta has special interest in fitting multifocal contact lenses, LASIK and cataract co-management and dry eye evaluation/management. In her free time she likes spending time with her family and friends, reading, running and traveling the world.</p>
+              <h4 className="text-2xl font-bold border-b-4 border-ta-100 inline-block mb-4">
+                Dr. Diane Ta <span className="text-base font-normal">O.D.</span>
+              </h4>
+              <p className="text-gray-700 pb-2">
+                Dr. Diane Ta was born and raised in Myrtle Beach, South Carolina
+                and received her Bachelor of Science in Biological Sciences with
+                a minor in Renaissance Studies from the University of South
+                Carolina. She then moved to Houston where she received her
+                Doctor of Optometry degree from the University of Houston
+                College of Optometry. She is currently licensed to practice
+                therapeutic optometry and is certified as an Optometric Glaucoma
+                Specialist. She is an active member of the Texas Optometric
+                Association, the American Optometric Association as well as the
+                local Tarrant County Optometric Association. Dr. Ta has special
+                interest in fitting multifocal contact lenses, LASIK and
+                cataract co-management and dry eye evaluation/management. In her
+                free time she likes spending time with her family and friends,
+                reading, running and traveling the world.
+              </p>
             </div>
           </div>
         </div>
         <div className="flex items-center pb-16">
-          <div className="flex-none img-circle rounded-full h-64 w-64 overflow-hidden shadow-inner" 
+          <div
+            className="flex-none img-circle rounded-full h-64 w-64 overflow-hidden shadow-inner"
             style={{
               backgroundImage: `url(https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg`,
               backgroundPosition: `center`,
-              backgroundSize: `cover`,
-            }}>
-          </div>
+              backgroundSize: `cover`
+            }}
+          />
           <div className="flex-shrink text-left pl-16">
             <div className="">
-            <h4 className="text-2xl font-bold border-b-4 border-ta-100 inline-block mb-4">Dr. Christiane Royal <span className="text-base font-normal">O.D.</span></h4>
-              <p className="text-gray-700 pb-2">Dr. Diane Ta was born and raised in Myrtle Beach, South Carolina and received her Bachelor of Science in Biological Sciences with a minor in Renaissance Studies from the University of South Carolina. She then moved to Houston where she received her Doctor of Optometry degree from the University of Houston College of Optometry. She is currently licensed to practice therapeutic optometry and is certified as an Optometric Glaucoma Specialist. She is an active member of the Texas Optometric Association, the American Optometric Association as well as the local Tarrant County Optometric Association. Dr. Ta has special interest in fitting multifocal contact lenses, LASIK and cataract co-management and dry eye evaluation/management. In her free time she likes spending time with her family and friends, reading, running and traveling the world.</p>
+              <h4 className="text-2xl font-bold border-b-4 border-ta-100 inline-block mb-4">
+                Dr. Christiane Royal{" "}
+                <span className="text-base font-normal">O.D.</span>
+              </h4>
+              <p className="text-gray-700 pb-2">
+                Dr. Diane Ta was born and raised in Myrtle Beach, South Carolina
+                and received her Bachelor of Science in Biological Sciences with
+                a minor in Renaissance Studies from the University of South
+                Carolina. She then moved to Houston where she received her
+                Doctor of Optometry degree from the University of Houston
+                College of Optometry. She is currently licensed to practice
+                therapeutic optometry and is certified as an Optometric Glaucoma
+                Specialist. She is an active member of the Texas Optometric
+                Association, the American Optometric Association as well as the
+                local Tarrant County Optometric Association. Dr. Ta has special
+                interest in fitting multifocal contact lenses, LASIK and
+                cataract co-management and dry eye evaluation/management. In her
+                free time she likes spending time with her family and friends,
+                reading, running and traveling the world.
+              </p>
             </div>
           </div>
         </div>
-        </div>
-        </section>
+      </div>
+    </section>
 
-        <section className="bg-ta-200 text-blue-100 py-12">
-        <div className="container mx-auto">
+    <section className="bg-ta-200 text-blue-100 py-12">
+      <div className="container mx-auto">
         <div className="flex flex-wrap justify-center content-center">
-        <div className="flex items-center px-8">
-          <div className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner" 
+          <div className="flex items-center px-8">
+            <div
+              className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner"
               style={{
                 backgroundImage: `url(https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg`,
                 backgroundPosition: `center`,
-                backgroundSize: `cover`,
-          }}>
-          </div>
-          <div className="flex-shrink text-left pl-8">
-            <div className="">
-              <h4 className="text-xl font-bold">Tiffany Hong</h4>
-              <p>Optometric Technician</p>
+                backgroundSize: `cover`
+              }}
+            />
+            <div className="flex-shrink text-left pl-8">
+              <div className="">
+                <h4 className="text-xl font-bold">Tiffany Hong</h4>
+                <p>Optometric Technician</p>
+              </div>
             </div>
           </div>
-        </div>
-        
-        
-        <div className="flex items-center p-8">
-          <div className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner" 
-              style={{
-                backgroundImage: `url(https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg`,
-                backgroundPosition: `center`,
-                backgroundSize: `cover`,
-          }}>
-          </div>
-          <div className="flex-shrink text-left pl-8">
-            <div className="">
-              <h4 className="text-xl font-bold">Tiffany Hong</h4>
-              <p>Optometric Technician</p>
-            </div>
-          </div>
-        </div>
 
-        <div className="flex items-center p-8">
-          <div className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner" 
+          <div className="flex items-center p-8">
+            <div
+              className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner"
               style={{
                 backgroundImage: `url(https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg`,
                 backgroundPosition: `center`,
-                backgroundSize: `cover`,
-          }}>
-          </div>
-          <div className="flex-shrink text-left pl-8">
-            <div className="">
-              <h4 className="text-xl font-bold">Tiffany Hong</h4>
-              <p>Optometric Technician</p>
+                backgroundSize: `cover`
+              }}
+            />
+            <div className="flex-shrink text-left pl-8">
+              <div className="">
+                <h4 className="text-xl font-bold">Tiffany Hong</h4>
+                <p>Optometric Technician</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex items-center p-8">
-          <div className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner" 
+
+          <div className="flex items-center p-8">
+            <div
+              className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner"
               style={{
                 backgroundImage: `url(https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg`,
                 backgroundPosition: `center`,
-                backgroundSize: `cover`,
-          }}>
-          </div>
-          <div className="flex-shrink text-left pl-8">
-            <div className="">
-              <h4 className="text-xl font-bold">Tiffany Hong</h4>
-              <p>Optometric Technician</p>
+                backgroundSize: `cover`
+              }}
+            />
+            <div className="flex-shrink text-left pl-8">
+              <div className="">
+                <h4 className="text-xl font-bold">Tiffany Hong</h4>
+                <p>Optometric Technician</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex items-center p-8">
-          <div className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner" 
+          <div className="flex items-center p-8">
+            <div
+              className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner"
               style={{
                 backgroundImage: `url(https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg`,
                 backgroundPosition: `center`,
-                backgroundSize: `cover`,
-          }}>
+                backgroundSize: `cover`
+              }}
+            />
+            <div className="flex-shrink text-left pl-8">
+              <div className="">
+                <h4 className="text-xl font-bold">Tiffany Hong</h4>
+                <p>Optometric Technician</p>
+              </div>
+            </div>
           </div>
-          <div className="flex-shrink text-left pl-8">
-            <div className="">
-              <h4 className="text-xl font-bold">Tiffany Hong</h4>
-              <p>Optometric Technician</p>
+          <div className="flex items-center p-8">
+            <div
+              className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner"
+              style={{
+                backgroundImage: `url(https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg`,
+                backgroundPosition: `center`,
+                backgroundSize: `cover`
+              }}
+            />
+            <div className="flex-shrink text-left pl-8">
+              <div className="">
+                <h4 className="text-xl font-bold">Tiffany Hong</h4>
+                <p>Optometric Technician</p>
+              </div>
             </div>
           </div>
         </div>
-        </div>
-        </div>
-        </section>
+      </div>
+    </section>
 
-        <section className="bg-gray-100 pt-24">
-          <Form/>
-          <Img fluid={image2.childImageSharp.fluid} className="z-0"/>
-        </section>
-
-
+    <section className="bg-gray-100 pt-24">
+      <Form />
+      <Img fluid={image2.childImageSharp.fluid} className="z-0" />
+    </section>
   </div>
 );
 
@@ -437,12 +498,6 @@ const IndexPage = ({ data }) => {
         services={frontmatter.services}
         appt={frontmatter.appointment}
         image2={frontmatter.image2}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
       />
     </Layout>
   );
@@ -498,27 +553,6 @@ export const pageQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
-        }
-        heading
-        subheading
-        mainpitch {
-          title
-          description
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
         }
       }
     }

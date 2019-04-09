@@ -22,9 +22,8 @@ function createMarkup(cms) {
 }
 
 export const IndexPageTemplate = ({
-  image,
+  hero,
   image2,
-  title,
   heading,
   subheading,
   mainpitch,
@@ -36,7 +35,7 @@ export const IndexPageTemplate = ({
       className="w-screen h-screen flex content-center justify-center"
       style={{
         backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+          !!hero.image.childImageSharp ? hero.image.childImageSharp.fluid.src : hero.image
         })`,
         backgroundPosition: `top left`,
         backgroundSize: `cover`,
@@ -46,7 +45,7 @@ export const IndexPageTemplate = ({
       <div className="v-center">
         <h2
           className="font-optical tracking-widest text-white text-12xl leading-none text-shadow-md"
-          dangerouslySetInnerHTML={createMarkup(title)}
+          dangerouslySetInnerHTML={createMarkup(hero.title)}
         />
       </div>
     </div>
@@ -438,7 +437,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
+        hero={frontmatter.hero}
         image2={frontmatter.image2}
         title={frontmatter.title}
         heading={frontmatter.heading}
@@ -465,11 +464,13 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        title
-        image {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
+        hero {
+          title
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }

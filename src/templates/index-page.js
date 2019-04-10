@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
 
-import BlueCross from "../img/bcbs.svg";
 import Phone from "../img/phone-call.svg";
 import Fax from "../img/file-text.svg";
 import Email from "../img/mail.svg";
@@ -22,6 +21,7 @@ export const IndexPageTemplate = ({
   hero,
   services,
   appt,
+  insurance,
   image2,
 }) => (
   <div>
@@ -154,54 +154,35 @@ export const IndexPageTemplate = ({
     </section>
 
     <section className="bg-ta-blue">
-      <div className="container mx-auto text-white p-16">
-        <h3 className="text-3xl tracking-widest font-semibold text-center pb-8">
+      <div className="container mx-auto text-white p-24">
+        <h3 className="text-3xl tracking-widest font-semibold text-center pb-12">
           Insurances Accepted
         </h3>
         <div className="flex flex-wrap justify-center -mx-16">
-          <div className="bg-white rounded-lg p-8 w-1/5 mx-4 mb-8 shadow-md">
-            <BlueCross className="w-full h-auto" />
-          </div>
-          <div className="bg-white rounded-lg p-8 w-1/5 mx-4 mb-8 shadow-md">
-            <BlueCross className="w-full h-auto" />
-          </div>
-          <div className="bg-white rounded-lg p-8 w-1/5 mx-4 mb-8 shadow-md">
-            <BlueCross className="w-full h-auto" />
-          </div>
-          <div className="bg-white rounded-lg p-8 w-1/5 mx-4 mb-8 shadow-md">
-            <BlueCross className="w-full h-auto" />
-          </div>
-          <div className="bg-white rounded-lg p-8 w-1/5 mx-4 mb-8 shadow-md">
-            <BlueCross className="w-full h-auto" />
-          </div>
-          <div className="bg-white rounded-lg p-8 w-1/5 mx-4 mb-8 shadow-md">
-            <BlueCross className="w-full h-auto" />
-          </div>
-          <div className="bg-white rounded-lg p-8 w-1/5 mx-4 mb-8 shadow-md">
-            <BlueCross className="w-full h-auto" />
-          </div>
-          <div className="bg-white rounded-lg p-8 w-1/5 mx-4 mb-8 shadow-md">
-            <BlueCross className="w-full h-auto" />
-          </div>
+          {insurance.images.map(img => (
+            <div className="bg-white rounded-lg p-6 w-1/5 mx-4 mb-8 shadow-md flex items-center">
+              <img className="w-full h-auto" src={img.publicURL} alt="" />
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
     <section className="bg-gray-100">
-      <div className="container mx-auto py-24 flex">
+      <div className="container mx-auto py-32 flex">
         <div className="w-1/2 z-10 shadow-lg">
           <iframe
             title="google-map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3358.3351669291683!2d-97.13281078436765!3d32.677131781002295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e62dbf6034d49%3A0x190f5b44c0395508!2sTa+Eye+Associates!5e0!3m2!1sen!2sus!4v1554481592234!5m2!1sen!2sus"
             width="100%"
-            height="450"
+            height="100%"
             frameborder="0"
             style={{ border: 0 }}
             allowfullscreen
           />
         </div>
         <div className="w-1/2 bg-white shadow-lg rounded-r-lg text-gray-800 flex flex-col justify-center content-center">
-          <div className="z-0 p-4">
+          <div className="z-0 px-8 pt-12 pb-16">
             <h3 className="text-4xl tracking-widest font-semibold font-optical uppercase pb-8 text-center text-black">
               Ta Eye Associates
             </h3>
@@ -497,6 +478,7 @@ const IndexPage = ({ data }) => {
         hero={frontmatter.hero}
         services={frontmatter.services}
         appt={frontmatter.appointment}
+        insurance={frontmatter.insurance}
         image2={frontmatter.image2}
       />
     </Layout>
@@ -546,6 +528,11 @@ export const pageQuery = graphql`
             publicURL
           }
           book
+        }
+        insurance {
+          images {
+            publicURL
+          }
         }
         image2 {
           childImageSharp {

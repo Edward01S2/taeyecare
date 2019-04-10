@@ -22,8 +22,13 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
+      - file: "src/pages/site/index.md"
+        label: "Site Settings"
+        name: "site"
+        fields:
+          - {label: Settings, name: settings, widget: object, fields: [{label: Phone, name: phone, widget: string}, {label: Fax, name: fax, widget: string}]}
       - file: "src/pages/index.md"
-        label: "Landing Page"
+        label: "Home"
         name: "index"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}

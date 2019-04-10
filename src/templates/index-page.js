@@ -236,7 +236,7 @@ export const IndexPageTemplate = ({
                       </svg>
                       <Email className="absolute absolute-center z-10 h-4 w-4 text-white stroke-current" />
                     </div>
-                    <a href={`mailto:${settings.email}`}>{formatPhone(settings.email)}</a>
+                    <a href={`mailto:${settings.email}`}>{settings.email}</a>
                   </li>
                 </ul>
                 <p>

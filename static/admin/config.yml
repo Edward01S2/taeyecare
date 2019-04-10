@@ -27,7 +27,7 @@ collections:
         name: "site"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "site-page"}
-          - {label: Settings, name: settings, widget: object, fields: [{label: Phone, name: phone, widget: string}, {label: Fax, name: fax, widget: string}, {label: Email, name: email, widget: string}]}
+          - {label: Settings, name: settings, widget: object, fields: [{label: Phone, name: phone, widget: string}, {label: Fax, name: fax, widget: string}, {label: Email, name: email, widget: string}, {label: Address, name: address, widget: text}]}
       - file: "src/pages/index.md"
         label: "Home"
         name: "index"

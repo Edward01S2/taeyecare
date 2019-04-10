@@ -17,11 +17,21 @@ function createMarkup(cms) {
   return { __html: cms };
 }
 
+function formatPhone(num) {
+  var cleaned = ('' + num).replace(/\D/g, '')
+  var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
+  if (match) {
+    return '(' + match[1] + ') ' + match[2] + '-' + match[3]
+  }
+  return null
+}
+
 export const IndexPageTemplate = ({
   hero,
   services,
   appt,
   insurance,
+  settings,
   image2,
 }) => (
   <div>
@@ -140,7 +150,7 @@ export const IndexPageTemplate = ({
                 new patient form{" "}
               </a>
               and bring it with you. You can call us at{" "}
-              <a href="tel:8174684461">(817) 468-4461</a> or book an appointment
+              <a href={`tel:${settings.phone}`}>{formatPhone(settings.phone)}</a> or book an appointment
               online below.
             </p>
             <a href={appt.book} target="_blank" rel="noopener noreferrer">
@@ -200,7 +210,7 @@ export const IndexPageTemplate = ({
                       </svg>
                       <Phone className="absolute absolute-center z-10 h-4 w-4 text-white stroke-current" />
                     </div>
-                    <p>(888) 888-8888</p>
+                    <a href={`tel:${settings.phone}`}>{formatPhone(settings.phone)}</a>
                   </li>
                   <li className="flex content-center items-center mb-3">
                     <div className="relative mr-2">
@@ -213,7 +223,7 @@ export const IndexPageTemplate = ({
                       </svg>
                       <Fax className="absolute absolute-center z-10 h-4 w-4 text-white stroke-current" />
                     </div>
-                    <p>(888) 888-8888</p>
+                    <a href={`tel:${settings.fax}`}>{formatPhone(settings.fax)}</a>
                   </li>
                   <li className="flex content-center items-center mb-3">
                     <div className="relative mr-2">
@@ -226,7 +236,7 @@ export const IndexPageTemplate = ({
                       </svg>
                       <Email className="absolute absolute-center z-10 h-4 w-4 text-white stroke-current" />
                     </div>
-                    <p>office@taeyecare.com</p>
+                    <a href={`mailto:${settings.email}`}>{formatPhone(settings.email)}</a>
                   </li>
                 </ul>
                 <p>
@@ -480,6 +490,7 @@ const IndexPage = ({ data }) => {
         appt={index.frontmatter.appointment}
         insurance={index.frontmatter.insurance}
         image2={index.frontmatter.image2}
+        settings={site.frontmatter.settings}
       />
     </Layout>
   );
@@ -549,6 +560,7 @@ export const pageQuery = graphql`
         settings {
           phone
           fax
+          email
         }
       }
     }

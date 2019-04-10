@@ -27,7 +27,7 @@ collections:
         name: "site"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "site-page"}
-          - {label: Settings, name: settings, widget: object, fields: [{label: Phone, name: phone, widget: string}, {label: Fax, name: fax, widget: string}, {label: Email, name: email, widget: string}, {label: Address, name: address, widget: text}]}
+          - {label: Settings, name: settings, widget: object, fields: [{label: Phone, name: phone, widget: string}, {label: Fax, name: fax, widget: string}, {label: Email, name: email, widget: string}, {label: Address, name: address, widget: text}, {label: Monday, name: monday, widget: string}, {label: Tuesday, name: tuesday, widget: string}, {label: Wednesday, name: wednesday, widget: string}, {label: Thursday, name: thursday, widget: string}, {label: Friday, name: friday, widget: string}, {label: Saturday, name: saturday, widget: string}, {label: Sunday, name: sunday, widget: string}]}
       - file: "src/pages/index.md"
         label: "Home"
         name: "index"

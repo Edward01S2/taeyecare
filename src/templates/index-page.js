@@ -239,17 +239,7 @@ export const IndexPageTemplate = ({
                     <a href={`mailto:${settings.email}`}>{settings.email}</a>
                   </li>
                 </ul>
-                <p>
-                  <span className="font-medium">
-                    The Parks Mall at Arlington
-                  </span>
-                  <br />
-                  (Btwn Sears and Barnes & Nobles)
-                  <br />
-                  3811 S. Cooper St. Suite #2004
-                  <br />
-                  Arlington, TX 76015
-                </p>
+                <p dangerouslySetInnerHTML={createMarkup(settings.address)}></p>
               </div>
 
               <div className="w-1/2">
@@ -561,6 +551,7 @@ export const pageQuery = graphql`
           phone
           fax
           email
+          address
         }
       }
     }

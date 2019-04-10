@@ -160,7 +160,7 @@ export const IndexPageTemplate = ({
         </h3>
         <div className="flex flex-wrap justify-center -mx-16">
           {insurance.images.map(img => (
-            <div className="bg-white rounded-lg p-6 w-1/5 mx-4 mb-8 shadow-md flex items-center">
+            <div className="bg-white rounded-lg p-6 w-1/5 mx-4 mb-8 shadow-md flex items-center" key={img.id}>
               <img className="w-full h-auto" src={img.publicURL} alt="" />
             </div>
           ))}
@@ -176,9 +176,8 @@ export const IndexPageTemplate = ({
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3358.3351669291683!2d-97.13281078436765!3d32.677131781002295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e62dbf6034d49%3A0x190f5b44c0395508!2sTa+Eye+Associates!5e0!3m2!1sen!2sus!4v1554481592234!5m2!1sen!2sus"
             width="100%"
             height="100%"
-            frameborder="0"
+            frameBorder="0"
             style={{ border: 0 }}
-            allowfullscreen
           />
         </div>
         <div className="w-1/2 bg-white shadow-lg rounded-r-lg text-gray-800 flex flex-col justify-center content-center">
@@ -470,16 +469,17 @@ export const IndexPageTemplate = ({
 // };
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
+  const { index } = data;
+  const { site } = data;
 
   return (
     <Layout>
       <IndexPageTemplate
-        hero={frontmatter.hero}
-        services={frontmatter.services}
-        appt={frontmatter.appointment}
-        insurance={frontmatter.insurance}
-        image2={frontmatter.image2}
+        hero={index.frontmatter.hero}
+        services={index.frontmatter.services}
+        appt={index.frontmatter.appointment}
+        insurance={index.frontmatter.insurance}
+        image2={index.frontmatter.image2}
       />
     </Layout>
   );
@@ -497,7 +497,7 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+    index: markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         hero {
           title
@@ -532,6 +532,7 @@ export const pageQuery = graphql`
         insurance {
           images {
             publicURL
+            id
           }
         }
         image2 {
@@ -540,6 +541,14 @@ export const pageQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+        }
+      }
+    }
+    site: markdownRemark(frontmatter: { templateKey: { eq: "site-page" } }) {
+      frontmatter {
+        settings {
+          phone
+          fax
         }
       }
     }

@@ -4,7 +4,7 @@ settings:
   address: |-
     <span class="font-medium">
     The Parks Mall at Arlington
-    </span>
+    </span><br />
     (Btwn Sears and Barnes & Nobles)<br />
     3811 S. Cooper St. Suite #2004<br />
     Arlington, TX 76015

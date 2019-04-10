@@ -1,26 +1,23 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
 
-export const SitePageTemplate = ({ title, content, contentComponent }) => {
-  const PageContent = contentComponent || Content
+
+export const SitePageTemplate = () => {
 
   return (
-    <section className="section section--gradient">
-
+    <section className="">
+      <div>Test</div>
     </section>
   )
 }
 
 
 const SitePage = ({ data }) => {
-  const { markdownRemark: post } = data
+  
 
   return (
     <Layout>
-      <AboutPageTemplate
+      <SitePageTemplate
       />
     </Layout>
   )

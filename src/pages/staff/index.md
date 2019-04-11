@@ -21,5 +21,24 @@ doctors:
     image: /img/diane.png
     name: Dr. Diane Ta
     title: O.D.
+  - bio: >-
+      Dr. Christiane Royal was born in Hinsdale, Illinois. She spent most of her
+      childhood in Illinois and then lived in Southern California for a few
+      years, before moving to Arlington, Texas in high school. Dr. Royal
+      graduated from Southwestern Adventist University with a BS in Biology,
+      before continuing her education at University of Houston College of
+      Optometry. 
+
+      <br /> <br />
+
+      Dr. Royal is happily married and lives with her husband and daughter in
+      Mansfield. She is an active member of the Texas Optometric Association,
+      the American Optometric Association as well as the local Tarrant County
+      Optometric Association. Dr. Royal enjoys doing children's eye exams,
+      contact lens fittings and cataract co-management. In her free time, Dr.
+      Royal enjoys spending time with her family, movies and travel.
+    image: /img/default.jpg
+    name: Dr. Christiane Royal
+    title: O.D.
 ---
 

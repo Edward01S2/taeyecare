@@ -44,5 +44,14 @@ staff:
   - image: /img/default.jpg
     name: Tiffany Hong
     title: Office Manager
+  - image: /img/default.jpg
+    name: Marilou Grape
+    title: Insurance Coordinator
+  - image: /img/default.jpg
+    name: Anna
+    title: Contact Lens Coordinator
+  - image: /img/default.jpg
+    name: Dishali
+    title: Assistant to the Manager
 ---
 

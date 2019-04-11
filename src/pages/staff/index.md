@@ -40,5 +40,9 @@ doctors:
     image: /img/default.jpg
     name: Dr. Christiane Royal
     title: O.D.
+staff:
+  - image: /img/default.jpg
+    name: Tiffany Hong
+    title: Office Manager
 ---
 

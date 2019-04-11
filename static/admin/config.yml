@@ -33,7 +33,7 @@ collections:
         name: "staff"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "staff-page"}
-          - {label: Doctors, name: doctors, widget: list, fields: [{label: Name, name: name, widget: string}, {label: Title, name: title, widget: string}, {label: Bio, name: bio, widget: text}]}
+          - {label: Doctors, name: doctors, widget: list, fields: [{label: Name, name: name, widget: string}, {label: Title, name: title, widget: string}, {label: Bio, name: bio, widget: text}, {label: Image, name: image, widget: image}]}
       - file: "src/pages/index.md"
         label: "Home"
         name: "index"

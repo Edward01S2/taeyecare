@@ -53,5 +53,8 @@ staff:
   - image: /img/default.jpg
     name: Dishali
     title: Assistant to the Manager
+  - image: /img/default.jpg
+    name: Emmy
+    title: Optometric Technician
 ---
 

@@ -12,6 +12,7 @@ import Check from "../img/user-check.svg";
 
 import Layout from "../components/Layout";
 import Form from "../components/Form";
+import Hours from "../components/Hours";
 
 function createMarkup(cms) {
   return { __html: cms };
@@ -246,38 +247,7 @@ export const IndexPageTemplate = ({
                 <h3 className="font-semibold text-black text-center pb-2">
                   Hours
                 </h3>
-                <table className="border-collapse text-sm mx-auto">
-                  <tbody>
-                    <tr>
-                      <td>Monday</td>
-                      <td>9:00 AM - 6:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td>Tuesday</td>
-                      <td>9:00 AM - 6:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td className="pr-4">Wednesday</td>
-                      <td>9:00 AM - 6:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td>Thursday</td>
-                      <td>9:00 AM - 6:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td>Friday</td>
-                      <td>9:00 AM - 6:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td>Saturday</td>
-                      <td>9:00 AM - 6:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td>Sunday</td>
-                      <td>9:00 AM - 6:00 PM</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <Hours classes="mx-auto"/>
               </div>
             </div>
           </div>

@@ -4,6 +4,7 @@ import TaLogo from "../img/taeye_logo_white.svg";
 import Phone from "../img/phone-call.svg";
 import Fax from "../img/file-text.svg";
 import Email from "../img/mail.svg";
+import Hours from "./Hours";
 
 const Footer = class extends React.Component {
   render() {
@@ -105,38 +106,7 @@ const Footer = class extends React.Component {
               </div>
 
               <div className="w-1/5 flex justify-end">
-                <table className="border-collapse text-sm">
-                  <tbody>
-                    <tr>
-                      <td>Monday</td>
-                      <td>9:00 AM - 6:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td>Tuesday</td>
-                      <td>9:00 AM - 6:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td className="pr-4">Wednesday</td>
-                      <td>9:00 AM - 6:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td>Thursday</td>
-                      <td>9:00 AM - 6:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td>Friday</td>
-                      <td>9:00 AM - 6:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td>Saturday</td>
-                      <td>9:00 AM - 6:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td>Sunday</td>
-                      <td>9:00 AM - 6:00 PM</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <Hours />
               </div>
 
 

@@ -14,6 +14,7 @@ import Layout from "../components/Layout";
 import Form from "../components/Form";
 import Hours from "../components/Hours";
 
+
 function createMarkup(cms) {
   return { __html: cms };
 }
@@ -33,6 +34,7 @@ export const IndexPageTemplate = ({
   appt,
   insurance,
   settings,
+  staff,
   image2,
 }) => (
   <div>
@@ -260,75 +262,28 @@ export const IndexPageTemplate = ({
         <h3 className="text-4xl tracking-widest font-semibold text-center uppercase pb-8">
           Our Team
         </h3>
-        <div className="flex items-center pb-16">
-          <div
-            className="flex-none img-circle rounded-full h-64 w-64 overflow-hidden shadow-inner"
-            style={{
-              backgroundImage: `url(https://www.distinctiveeye.com/img/home-bio-diane.png)`,
-              backgroundPosition: `center`,
-              backgroundSize: `cover`
-            }}
-          />
-          <div className="flex-shrink text-left pl-16">
-            <div className="">
-              <h4 className="text-2xl font-bold border-b-4 border-ta-100 inline-block mb-4">
-                Dr. Diane Ta <span className="text-base font-normal">O.D.</span>
-              </h4>
-              <p className="text-gray-700 pb-2">
-                Dr. Diane Ta was born and raised in Myrtle Beach, South Carolina
-                and received her Bachelor of Science in Biological Sciences with
-                a minor in Renaissance Studies from the University of South
-                Carolina. She then moved to Houston where she received her
-                Doctor of Optometry degree from the University of Houston
-                College of Optometry. She is currently licensed to practice
-                therapeutic optometry and is certified as an Optometric Glaucoma
-                Specialist. She is an active member of the Texas Optometric
-                Association, the American Optometric Association as well as the
-                local Tarrant County Optometric Association. Dr. Ta has special
-                interest in fitting multifocal contact lenses, LASIK and
-                cataract co-management and dry eye evaluation/management. In her
-                free time she likes spending time with her family and friends,
-                reading, running and traveling the world.
-              </p>
+          {staff.doctors.map(doc => (
+            <div className="flex items-center pb-16">
+              <div
+                className="flex-none img-circle rounded-full h-64 w-64 overflow-hidden shadow-inner"
+                style={{
+                  backgroundImage: `url(${doc.image.publicURL})`,
+                  backgroundPosition: `center`,
+                  backgroundSize: `cover`
+                }}
+              />
+              <div className="flex-shrink text-left pl-16">
+                <div className="">
+                  <h4 className="text-2xl font-bold border-b-4 border-ta-100 inline-block mb-4">
+                    {doc.name} <span className="text-base font-normal">{doc.title}</span>
+                  </h4>
+                  <p className="text-gray-700 pb-2" dangerouslySetInnerHTML={createMarkup(doc.bio)}></p>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
-        <div className="flex items-center pb-16">
-          <div
-            className="flex-none img-circle rounded-full h-64 w-64 overflow-hidden shadow-inner"
-            style={{
-              backgroundImage: `url(https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg`,
-              backgroundPosition: `center`,
-              backgroundSize: `cover`
-            }}
-          />
-          <div className="flex-shrink text-left pl-16">
-            <div className="">
-              <h4 className="text-2xl font-bold border-b-4 border-ta-100 inline-block mb-4">
-                Dr. Christiane Royal{" "}
-                <span className="text-base font-normal">O.D.</span>
-              </h4>
-              <p className="text-gray-700 pb-2">
-                Dr. Diane Ta was born and raised in Myrtle Beach, South Carolina
-                and received her Bachelor of Science in Biological Sciences with
-                a minor in Renaissance Studies from the University of South
-                Carolina. She then moved to Houston where she received her
-                Doctor of Optometry degree from the University of Houston
-                College of Optometry. She is currently licensed to practice
-                therapeutic optometry and is certified as an Optometric Glaucoma
-                Specialist. She is an active member of the Texas Optometric
-                Association, the American Optometric Association as well as the
-                local Tarrant County Optometric Association. Dr. Ta has special
-                interest in fitting multifocal contact lenses, LASIK and
-                cataract co-management and dry eye evaluation/management. In her
-                free time she likes spending time with her family and friends,
-                reading, running and traveling the world.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
     <section className="bg-ta-200 text-blue-100 py-12">
       <div className="container mx-auto">
@@ -441,6 +396,7 @@ export const IndexPageTemplate = ({
 const IndexPage = ({ data }) => {
   const { index } = data;
   const { site } = data;
+  const { staff } = data;
 
   return (
     <Layout>
@@ -451,6 +407,7 @@ const IndexPage = ({ data }) => {
         insurance={index.frontmatter.insurance}
         image2={index.frontmatter.image2}
         settings={site.frontmatter.settings}
+        staff={staff.frontmatter}
       />
     </Layout>
   );
@@ -522,6 +479,18 @@ export const pageQuery = graphql`
           fax
           email
           address
+        }
+      }
+    }
+    staff: markdownRemark(frontmatter: { templateKey: { eq: "staff-page" } }) {
+			frontmatter {
+        doctors {
+          name
+          title
+          bio
+          image {
+            publicURL
+          }
         }
       }
     }

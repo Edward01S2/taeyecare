@@ -8,6 +8,7 @@ doctors:
       to Houston where she received her Doctor of Optometry degree from the
       University of Houston College of Optometry. 
 
+      <br />
 
       She is currently licensed to practice therapeutic optometry and is
       certified as an Optometric Glaucoma Specialist. She is an active member of

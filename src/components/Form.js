@@ -38,7 +38,7 @@ export default class Index extends React.Component {
           <div className="container mx-auto">
             <div className="content py-16 mx-48 px-24 -mb-64 shadow-lg rounded-lg bg-white z-20">
               <h2 className="text-center text-4xl tracking-widest font-semibold text-center uppercase">Get in touch</h2>
-              <p className="text-center pb-8 text-gray-700">Leave us a message or call us at <a href="/">888-888-8888</a></p>
+              <p className="text-center pb-8 text-gray-700">Leave us a message or call us at <a href={`tel:${this.props.phone}`}>{this.props.formatPhone}</a></p>
               <form
                 name="contact"
                 method="post"
@@ -101,7 +101,7 @@ export default class Index extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                  <button className="bg-ta-blue hover:bg-ta-300 text-white font-bold py-2 px-4 rounded" type="submit">
+                  <button className="bg-ta-blue hover:bg-ta-300 text-white text-lg font-bold py-2 px-4 rounded" type="submit">
                     Send
                   </button>
                 </div>

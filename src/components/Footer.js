@@ -1,10 +1,21 @@
 import React from "react";
+import { StaticQuery, graphql } from "gatsby";
 import { Link } from "gatsby";
+
 import TaLogo from "../img/taeye_logo_white.svg";
 import Phone from "../img/phone-call.svg";
 import Fax from "../img/file-text.svg";
 import Email from "../img/mail.svg";
 import Hours from "./Hours";
+
+function formatPhone(num) {
+  var cleaned = ('' + num).replace(/\D/g, '')
+  var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
+  if (match) {
+    return '(' + match[1] + ') ' + match[2] + '-' + match[3]
+  }
+  return null
+}
 
 const Footer = class extends React.Component {
   render() {
@@ -21,8 +32,8 @@ const Footer = class extends React.Component {
                 </Link>
                 <div className="hidden md:block md:pt-3">
                   <ul className="list-reset text-sm">
-                    <li className="footer-links hover:text-white pb-1">@2019 Ta Eye Associates</li>
-                    <li className="footer-links hover:text-white">Privacy & Policy</li>
+                    <li className="text-white pb-1">@2019 Ta Eye Associates</li>
+                    <li className="text-white">Privacy & Policy</li>
                   </ul>
                 </div>
               </div>
@@ -33,18 +44,18 @@ const Footer = class extends React.Component {
                     <h4 className="text-base font-bold tracking-widest uppercase">Company</h4>
                   </li>
                   <li className="pb-3">
-                    <Link to="work" className="footer-links hover:text-white">
+                    <Link to="work" className="text-white">
                       Services
                     </Link>
                   </li>
                   <li className="pb-3">
-                    <Link to="services" className="footer-links hover:text-white">
-                      Team
+                    <Link to="articles" className="text-white">
+                      About
                     </Link>
                   </li>
-                  <li>
-                    <Link to="articles" className="footer-links hover:text-white">
-                      About
+                  <li className="pb-3">
+                    <Link to="services" className="text-white">
+                      Team
                     </Link>
                   </li>
                 </ul>
@@ -56,17 +67,17 @@ const Footer = class extends React.Component {
                     <h4 className="text-base font-bold tracking-widest uppercase">Resources</h4>
                   </li>
                   <li className="pb-3">
-                    <Link to="work" className="footer-links hover:text-white">
+                    <Link to="work" className="text-white">
                       Appointments
                     </Link>
                   </li>
                   <li className="pb-3">
-                    <Link to="services" className="footer-links hover:text-white">
+                    <Link to="services" className="text-white">
                       Blog
                     </Link>
                   </li>
                   <li>
-                    <Link to="articles" className="footer-links hover:text-white">
+                    <Link to="articles" className="text-white">
                       Contact
                     </Link>
                   </li>
@@ -82,7 +93,7 @@ const Footer = class extends React.Component {
                         </svg>
                         <Phone className="absolute absolute-center z-10 h-4 w-4 text-white stroke-current" />
                       </div>
-                      <p>(888) 888-8888</p>
+                      <a className="text-white" href={`tel:${this.props.site.phone}`}>{formatPhone(this.props.site.phone)}</a>
                     </li>
                     <li className="flex content-center items-center mb-3">
                       <div className="relative mr-2">
@@ -91,7 +102,7 @@ const Footer = class extends React.Component {
                         </svg>
                         <Fax className="absolute absolute-center z-10 h-4 w-4 text-white stroke-current" />
                       </div>
-                      <p>(888) 888-8888</p>
+                      <a className="text-white" href={`tel:${this.props.site.fax}`}>{formatPhone(this.props.site.fax)}</a>
                     </li>
                     <li className="flex content-center items-center mb-3">
                       <div className="relative mr-2">
@@ -100,7 +111,7 @@ const Footer = class extends React.Component {
                         </svg>
                         <Email className="absolute absolute-center z-10 h-4 w-4 text-white stroke-current" />
                       </div>
-                      <p>office@taeyecare.com</p>
+                      <a className="text-white" href={`mailto:${this.props.site.email}`}>{this.props.site.email}</a>
                     </li>
                 </ul>
               </div>
@@ -121,4 +132,23 @@ const Footer = class extends React.Component {
   }
 };
 
-export default Footer;
+export default () => (
+  <StaticQuery
+    query={graphql`
+    query FooterQuery {
+      markdownRemark(frontmatter: { templateKey: { eq: "site-page" } }) {
+        frontmatter {
+          settings {
+            phone
+            fax
+            email
+          }
+        }
+      }
+    }
+    `}
+    render={(data) => (
+      <Footer site={data.markdownRemark.frontmatter.settings} />
+    )}
+  />
+)

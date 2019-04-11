@@ -285,97 +285,33 @@ export const IndexPageTemplate = ({
         </div>
       </section>
 
-    <section className="bg-ta-200 text-blue-100 py-12">
+    <section className="bg-ta-200 text-blue-100 pt-12 pb-6">
       <div className="container mx-auto">
         <div className="flex flex-wrap justify-center content-center">
-          <div className="flex items-center px-8">
-            <div
-              className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner"
-              style={{
-                backgroundImage: `url(https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg`,
-                backgroundPosition: `center`,
-                backgroundSize: `cover`
-              }}
-            />
-            <div className="flex-shrink text-left pl-8">
-              <div className="">
-                <h4 className="text-xl font-bold">Tiffany Hong</h4>
-                <p>Optometric Technician</p>
+          {staff.staff.map(usr => (
+            <div className="flex items-center px-8 pb-8">
+              <div
+                className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner"
+                style={{
+                  backgroundImage: `url(${usr.image.publicURL}`,
+                  backgroundPosition: `center`,
+                  backgroundSize: `cover`
+                }}
+              />
+              <div className="flex-shrink text-left pl-8">
+                <div className="">
+                  <h4 className="text-xl font-bold">{usr.name}</h4>
+                  <p>{usr.title}</p>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="flex items-center p-8">
-            <div
-              className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner"
-              style={{
-                backgroundImage: `url(https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg`,
-                backgroundPosition: `center`,
-                backgroundSize: `cover`
-              }}
-            />
-            <div className="flex-shrink text-left pl-8">
-              <div className="">
-                <h4 className="text-xl font-bold">Tiffany Hong</h4>
-                <p>Optometric Technician</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center p-8">
-            <div
-              className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner"
-              style={{
-                backgroundImage: `url(https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg`,
-                backgroundPosition: `center`,
-                backgroundSize: `cover`
-              }}
-            />
-            <div className="flex-shrink text-left pl-8">
-              <div className="">
-                <h4 className="text-xl font-bold">Tiffany Hong</h4>
-                <p>Optometric Technician</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center p-8">
-            <div
-              className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner"
-              style={{
-                backgroundImage: `url(https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg`,
-                backgroundPosition: `center`,
-                backgroundSize: `cover`
-              }}
-            />
-            <div className="flex-shrink text-left pl-8">
-              <div className="">
-                <h4 className="text-xl font-bold">Tiffany Hong</h4>
-                <p>Optometric Technician</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center p-8">
-            <div
-              className="flex-none img-circle rounded-full h-24 w-24 overflow-hidden shadow-inner"
-              style={{
-                backgroundImage: `url(https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg`,
-                backgroundPosition: `center`,
-                backgroundSize: `cover`
-              }}
-            />
-            <div className="flex-shrink text-left pl-8">
-              <div className="">
-                <h4 className="text-xl font-bold">Tiffany Hong</h4>
-                <p>Optometric Technician</p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
 
     <section className="bg-gray-100 pt-24">
-      <Form />
+      <Form formatPhone={formatPhone(settings.phone)} phone={settings.phone}/>
       <Img fluid={image2.childImageSharp.fluid} className="z-0" />
     </section>
   </div>
@@ -488,6 +424,13 @@ export const pageQuery = graphql`
           name
           title
           bio
+          image {
+            publicURL
+          }
+        }
+        staff {
+          name
+          title
           image {
             publicURL
           }

@@ -13,16 +13,29 @@ body {
 
 a {
   @apply text-ta-200;
+  transition: all 0.25s ease;
 }
 
 a:hover {
   @apply underline cursor-pointer;
 }
 
+.link-active {
+  @apply text-ta-200 text-xl;
+}
+
+.btn-active {
+  @apply bg-ta-200 shadow-inner;
+}
+
 .v-center {
   position: absolute;
   top:50%;
   transform:translate(0%, -50%);
+}
+
+.greyscale {
+  filter: grayscale(100%) opacity(50%);
 }
 
 .text-shadow {
@@ -51,16 +64,11 @@ a:hover {
   transform: translate(-50%, -50%);
 }
 
-// .img-circle {
-//   border-radius: 50%;
-//   overflow: hidden;
-//   width: 150px;
-//   height: 150px;
-//   position: relative;
-// }
-
-// .img-bio {
-//   margin: 0 auto;
-//   height: 100%;
-//   width: 100%;
-// }
+@responsive {
+  .order-0 { order: 0; }
+  .order-1 { order: 1; }
+  .order-2 { order: 2; }
+  .order-3 { order: 3; }
+  .order-4 { order: 4; }
+  .order-5 { order: 5; }
+}

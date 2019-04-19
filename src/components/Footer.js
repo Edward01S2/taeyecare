@@ -21,10 +21,10 @@ const Footer = class extends React.Component {
   render() {
     return (
       <footer>
-        <div className="pt-8 pb-8 bg-ta-300 text-white">
+        <div className="p-8 bg-ta-300 text-white">
           <div className="container mx-auto">
-            <div className="flex">
-              <div className="w-1/5 flex flex-col items-center">
+            <div className="flex flex-wrap">
+              <div className="flex flex-col md:w-1/5 md:items-center">
                 <Link to="/" >
                   <div>
                     <TaLogo className="h-10 w-auto"/>
@@ -38,9 +38,9 @@ const Footer = class extends React.Component {
                 </div>
               </div>
 
-              <div className="w-1/5 flex flex-col items-center">
+              <div className="flex flex-col w-1/2 md:w-1/5 md:items-center">
                 <ul className="m-0 p-0 list-outside list-none">
-                  <li className="pb-3">
+                  <li className="pt-4 pb-3">
                     <h4 className="text-base font-bold tracking-widest uppercase">Company</h4>
                   </li>
                   <li className="pb-3">
@@ -61,9 +61,9 @@ const Footer = class extends React.Component {
                 </ul>
               </div>
 
-              <div className="w-1/5 flex flex-col items-center">
+              <div className="flex flex-col w-1/2 md:w-1/5 md:items-center">
                 <ul className="m-0 p-0 list-outside list-none">
-                  <li className="pb-3">
+                  <li className="pt-4 pb-3  ">
                     <h4 className="text-base font-bold tracking-widest uppercase">Resources</h4>
                   </li>
                   <li className="pb-3">
@@ -76,7 +76,7 @@ const Footer = class extends React.Component {
                       Blog
                     </Link>
                   </li>
-                  <li>
+                  <li className="pb-8">
                     <Link to="articles" className="text-white">
                       Contact
                     </Link>
@@ -84,7 +84,7 @@ const Footer = class extends React.Component {
                 </ul>
               </div>
 
-              <div className="w-1/5 flex flex-col items-center">
+              <div className="flex flex-col md:w-1/5 md:items-center">
                 <ul className="m-0 p-0 list-outside list-none">
                 <li className="flex content-center items-center mb-3">
                       <div className="relative mr-2">
@@ -116,7 +116,7 @@ const Footer = class extends React.Component {
                 </ul>
               </div>
 
-              <div className="w-1/5 flex justify-end">
+              <div className="flex flex-col hidden md:w-1/5 md:items-center">
                 <Hours />
               </div>
 

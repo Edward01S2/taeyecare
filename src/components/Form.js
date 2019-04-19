@@ -36,9 +36,9 @@ export default class Index extends React.Component {
     return (
         <section className="section z-10 relative">
           <div className="container mx-auto">
-            <div className="content py-8 mx-8 px-8 -mb-8 md:-mb-64 shadow-lg rounded-lg bg-white z-20">
+            <div className="content py-8 mx-4 px-8 -mb-8 md:-mb-64 shadow-lg rounded-lg bg-white z-20">
               <h2 className="text-center text-4xl tracking-widest font-semibold text-center uppercase">Get in touch</h2>
-              <p className="text-center pb-8 text-gray-700">Leave us a message or call us at <a href={`tel:${this.props.phone}`}>{this.props.formatPhone}</a></p>
+              <p className="text-center pb-8 text-gray-700 w-3/4 mx-auto">Leave us a message or call us at <a href={`tel:${this.props.phone}`}>{this.props.formatPhone}</a></p>
               <form
                 name="contact"
                 method="post"

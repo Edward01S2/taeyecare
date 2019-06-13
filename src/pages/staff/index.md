@@ -18,7 +18,7 @@ doctors:
       co-management and dry eye evaluation/management. In her free time she
       likes spending time with her family and friends, reading, running and
       traveling the world.
-    image: /img/diane.png
+    image: /img/diane.jpg
     name: Dr. Diane Ta
     title: O.D.
   - bio: >-

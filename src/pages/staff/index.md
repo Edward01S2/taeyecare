@@ -63,6 +63,9 @@ staff:
   - image: /img/ana.jpg
     name: Ana Gomez
     title: Contact Lens Coordinator
+  - image: /img/patricia.jpg
+    name: Patricia Amaya
+    title: Optometric Technician
   - image: /img/zahraa.jpg
     name: Zahraa Ileiwi
     title: Optometric Technician

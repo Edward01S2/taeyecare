@@ -37,24 +37,40 @@ doctors:
       Optometric Association. Dr. Royal enjoys doing children's eye exams,
       contact lens fittings and cataract co-management. In her free time, Dr.
       Royal enjoys spending time with her family, movies and travel.
-    image: /img/default.jpg
+    image: /img/royal.jpg
     name: Dr. Christiane Royal
     title: O.D.
+  - bio: >-
+      Dr. Koyfman was born in Ukraine and raised in Brooklyn, New York. He
+      received his bachelors degree at Penn State and then moved to England
+      where he attended University of Surrey for his masters. He then graduated
+      top of his class from Inter- American University of Puerto Rico, School of
+      Optometry, where he received his Doctor of Optometry Degree. He is
+      currently licensed to practice therapeutic optometry. Dr. Koyfman has a
+      special interest in curing diseases. He did his residency at the Cedar
+      Springs clinic for ocular diseases. In his free time, he likes to spend
+      with his friends, and traveling the world.
+    image: /img/kofyman.jpg
+    name: Dr. Vladislav Kofyman
+    title: O.D.
 staff:
-  - image: /img/default.jpg
+  - image: /img/tiffany.jpg
     name: Tiffany Hong
     title: Office Manager
-  - image: /img/default.jpg
-    name: Marilou Grape
-    title: Insurance Coordinator
-  - image: /img/default.jpg
-    name: Anna
+  - image: /img/dishali.jpg
+    name: Dishali Patel
+    title: Assistant Manager
+  - image: /img/ana.jpg
+    name: Ana Gomez
     title: Contact Lens Coordinator
-  - image: /img/default.jpg
-    name: Dishali
-    title: Assistant to the Manager
-  - image: /img/default.jpg
-    name: Emmy
+  - image: /img/zahraa.jpg
+    name: Zahraa Ileiwi
+    title: Optometric Technician
+  - image: /img/marissa.jpg
+    name: Marissa Estrada
+    title: Optometric Technician
+  - image: /img/yenifer.jpg
+    name: Yenifer Rivera
     title: Optometric Technician
 ---
 

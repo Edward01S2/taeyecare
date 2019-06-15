@@ -27,7 +27,7 @@ const Navbar = class extends React.Component {
       <nav role="navigation" aria-label="main-navigation" className={this.props.classes}>
         <div className="container mx-auto">
           <div className="flex items-center justify-between flex-wrap md:py-4 md:px-4 lg:px-4 xl:px-0 xl:py-2">
-            <div className="flex items-center flex-no-shrink text-black pt-2">
+            <div className="flex items-center flex-no-shrink text-black pt-4">
               <div className="text-blue pb-2 pl-8 md:pl-0">
               <button onClick={this.scrollToTop} className="focus:outline-none">
                 <div>
@@ -60,6 +60,7 @@ const Navbar = class extends React.Component {
                 <Link
                   activeClass="link-active"
                   to="services"
+                  onClick={this.handleClick}
                   offset={-100}
                   spy={true}
                   smooth={true}
@@ -71,6 +72,7 @@ const Navbar = class extends React.Component {
                 <Link
                   activeClass="link-active"
                   to="about"
+                  onClick={this.handleClick}
                   spy={true}
                   smooth={true}
                   duration={600}
@@ -81,6 +83,7 @@ const Navbar = class extends React.Component {
                 <Link
                   activeClass="link-active"
                   to="team"
+                  onClick={this.handleClick}
                   spy={true}
                   smooth={true}
                   duration={600}
@@ -91,6 +94,7 @@ const Navbar = class extends React.Component {
                 <Link
                   activeClass="link-active"
                   to="contact"
+                  onClick={this.handleClick}
                   spy={true}
                   smooth={true}
                   duration={600}
@@ -102,10 +106,11 @@ const Navbar = class extends React.Component {
                   activeClass="btn-active"
                   offset={-100}
                   to="appts"
+                  onClick={this.handleClick}
                   spy={true}
                   smooth={true}
                   duration={600}
-                  className={`bg-ta-blue hover:bg-ta-200 hover:no-underline text-white font-semibold py-2 px-3 rounded shadow mt-8 mb-4 md:mr-4 md:my-0`}
+                  className={`bg-ta-100 hover:bg-ta-200 hover:no-underline text-white font-semibold py-2 px-3 rounded shadow mt-8 mb-4 md:mr-4 md:my-0`}
                 >
                   appointments
                 </Link>

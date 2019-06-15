@@ -61,10 +61,10 @@ export const IndexPageTemplate = ({
 
     <Element name="services">
       <section className="text-center md:mx-8 xl:bg-transparent">
-        <div className="container mx-auto md:-mt-16 bg-white md:shadow-md md:shadow-lg rounded-lg lg:-mt-32 xl:bg-white">
-          <div className="flex px-8 py-8 md:py-8 lg:p-8 xl:p-16">
+        <div className="container mx-auto md:-mt-24 bg-white rounded-lg md:shadow-md md:shadow-lg xl:bg-white xl:-mt-32">
+          <div className="flex px-8 py-8 md:py-8 lg:p-8 xl:px-16 xl:py-10">
             <div className="lg:w-1/2 flex flex-col lg:pr-16">
-              <h3 className="text-4xl tracking-widest font-semibold text-center uppercase md:pb-0">
+              <h3 className="text-4xl tracking-widest font-semibold text-center uppercase md:pb-0 xl:pb-4">
                 Services
               </h3>
 
@@ -145,8 +145,8 @@ export const IndexPageTemplate = ({
     <Element name="appts">
       <section className="bg-gray-100">
         <div className="container mx-auto md:mt-24">
-        <div className="flex flex-col p-8 py-24 md:items-center lg:flex-row">
-          <div className="md:w-1/2 md:p-8">
+        <div className="flex flex-col p-8 py-24 md:py-16 md:items-center lg:flex-row">
+          <div className="md:w-1/2 md:p-8 md:pt-0">
             <img className="w-full h-full" src={appt.image.publicURL} alt="" />
           </div>
           <div className="pt-16 md:w-1/2 md:pt-0">
@@ -170,7 +170,7 @@ export const IndexPageTemplate = ({
                 or book an appointment online below.
               </p>
               <a href={appt.book} target="_blank" rel="noopener noreferrer">
-                <button className="bg-ta-blue hover:bg-ta-200 text-white text-lg font-bold py-4 px-6 rounded uppercase tracking-wider shadow-lg">
+                <button className="bg-ta-100 hover:bg-ta-200 text-white text-lg font-bold py-4 px-6 rounded uppercase tracking-wider shadow-lg">
                   Book Appointment
                 </button>
               </a>
@@ -181,7 +181,7 @@ export const IndexPageTemplate = ({
       </section>
     </Element>
 
-    <section className="bg-ta-blue">
+    <section className="bg-ta-200">
       <div className="container mx-auto text-white pt-16 pb-8 px-12 md:py-16 md:px-8">
         <h3 className="text-2xl tracking-widest font-semibold text-center pb-8">
           Insurances Accepted
@@ -192,7 +192,7 @@ export const IndexPageTemplate = ({
               className="bg-white rounded-lg py-6 px-8 w-full mb-8 shadow-md flex items-center md:w-1/3 md:mx-2 lg:w-1/4 xl:w-1/5"
               key={img.id}
             >
-              <img className="w-full h-auto opacity-75" src={img.publicURL} alt="" />
+              <img className="w-full h-auto" src={img.publicURL} alt="" />
             </div>
           ))}
         </div>
@@ -202,15 +202,17 @@ export const IndexPageTemplate = ({
     <Element name="about">
       <section className="bg-gray-100">
         <div className="container mx-auto md:py-16 flex flex-col lg:px-8 xl:flex-row xl:px-0">
-          <div className="w-full h-64 px-4 order-1 mb-24 z-10 md:px-8 md:mb-0 lg:px-0 lg:h-72 xl:w-1/2 xl:h-80">
-            <iframe
-              title="google-map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3358.3351669291683!2d-97.13281078436765!3d32.677131781002295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e62dbf6034d49%3A0x190f5b44c0395508!2sTa+Eye+Associates!5e0!3m2!1sen!2sus!4v1554481592234!5m2!1sen!2sus"
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              style={{ border: 0 }}
-            />
+          <div className="mx-4 order-1 mb-24 z-10 md:mx-8 md:shadow-md md:shadow-lg md:mb-0 md:px-0 lg:mx-0 lg:px-0 xl:w-1/2">
+            <div className="w-full h-64 lg:h-72 xl:h-80">
+              <iframe
+                title="google-map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3358.3351669291683!2d-97.13281078436765!3d32.677131781002295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e62dbf6034d49%3A0x190f5b44c0395508!2sTa+Eye+Associates!5e0!3m2!1sen!2sus!4v1554481592234!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                style={{ border: 0 }}
+              />
+            </div>
           </div>
           <div className="mx-4 mt-16 order-0 rounded-t-lg bg-white shadow-lg text-gray-800 flex flex-col justify-center content-center md:mx-8 md:my-0 lg:mx-0 xl:w-1/2">
             <div className="z-0 p-8 pb-12 md:px-8 md:pt-12 md:pb-8">
@@ -267,7 +269,7 @@ export const IndexPageTemplate = ({
                   <p className="leading-loose lg:hidden xl:block" dangerouslySetInnerHTML={createMarkup(settings.address)} />
                 </div>
 
-                <div className="pb-8 md:hidden lg:block lg:w-1/3 xl:hidden">
+                <div className="pb-8 hidden md:hidden lg:block lg:w-1/3 xl:hidden">
                   <p className="leading-loose" dangerouslySetInnerHTML={createMarkup(settings.address)} />
                 </div>
 

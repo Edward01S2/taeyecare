@@ -21,7 +21,7 @@ const Footer = class extends React.Component {
   render() {
     return (
       <footer>
-        <div className="p-8 bg-ta-300 text-white md:p-4 lg:p-8 xl:px-0 xl:py-16">
+        <div className="p-8 bg-ta-300 text-white md:p-8 lg:p-8 xl:px-0 xl:py-16">
           <div className="container mx-auto">
             <div className="flex flex-wrap md:justify-between">
               <div className="flex flex-col w-full md:w-1/5 md:items-center xl:items-start">

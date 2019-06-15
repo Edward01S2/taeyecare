@@ -2,7 +2,7 @@
 templateKey: index-page
 hero:
   image: /img/ta_bg.png
-  title: Make the World Clear Again
+  title: Make Life Clear Again
 services:
   image: /img/medicine.svg
   item1: Eye Checkups

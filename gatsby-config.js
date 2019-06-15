@@ -75,6 +75,17 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Ta Eye Associates`,
+        short_name: `Ta Eye`,
+        start_url: `/`,
+        background_color: `#fff`,
+        theme_color: `#04B0C6`,
+        icon: `src/images/ta_favicon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
@@ -92,15 +103,5 @@ module.exports = {
   ],
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
-  developMiddleware: app => {
-    app.use(
-      "/.netlify/functions/",
-      proxy({
-        target: "http://localhost:9000",
-        pathRewrite: {
-          "/.netlify/functions/": "",
-        },
-      })
-    )
-  },
+
 }

@@ -148,6 +148,7 @@ module.exports = {
       '56': '14rem',
       '64': '16rem',
       '72': '24rem',
+      '80': '36rem',
     },
     screens: {
       sm: '640px',

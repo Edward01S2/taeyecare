@@ -1,5 +1,5 @@
 import React from "react";
-import { Logo, Menu, Close } from "./Svg";
+import { Menu, Close } from "./Svg";
 import { Link, animateScroll } from 'react-scroll'
 import TaLogo from "../img/taeye_logo.svg"
 
@@ -84,7 +84,7 @@ const Navbar = class extends React.Component {
                   spy={true}
                   smooth={true}
                   duration={600}
-                  className={`block text-gray-700 hover:text-ta-100 hover:no-underline mt-6 md:mt-0 lg:mr-8`}
+                  className={`block text-gray-700 hover:text-ta-100 hover:no-underline mt-6 md:mr-8 md:mt-0`}
                 >
                   team
                 </Link>
@@ -94,7 +94,7 @@ const Navbar = class extends React.Component {
                   spy={true}
                   smooth={true}
                   duration={600}
-                  className={`block text-gray-700 hover:text-ta-100 hover:no-underline mt-6 md:mt-0 lg:mr-8`}
+                  className={`block text-gray-700 hover:text-ta-100 hover:no-underline mt-6 md:mt-0 md:mr-8`}
                 >
                   contact
                 </Link>
@@ -105,7 +105,7 @@ const Navbar = class extends React.Component {
                   spy={true}
                   smooth={true}
                   duration={600}
-                  className={`bg-ta-blue hover:bg-ta-200 hover:no-underline text-white font-semibold py-2 px-3 rounded shadow`}
+                  className={`bg-ta-blue hover:bg-ta-200 hover:no-underline text-white font-semibold py-2 px-3 rounded shadow mt-8 mb-4 md:mr-4 md:my-0`}
                 >
                   appointments
                 </Link>

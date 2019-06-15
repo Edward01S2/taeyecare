@@ -36,8 +36,8 @@ export default class Index extends React.Component {
     return (
         <section className="section z-10 relative">
           <div className="container mx-auto">
-            <div className="content py-8 mx-4 px-8 -mb-8 md:-mb-64 shadow-lg rounded-lg bg-white z-20">
-              <h2 className="text-center text-4xl tracking-widest font-semibold text-center uppercase">Get in touch</h2>
+            <div className="content py-8 mx-4 px-8 -mb-8 md:-mb-24 shadow-lg rounded-lg bg-white z-20 md:mx-8 lg:mx-24 xl:py-16 xl:-mb-48 xl:max-w-4xl xl:mx-auto">
+              <h2 className="text-center text-3xl tracking-widest font-semibold text-center uppercase md:text-4xl">Get in touch</h2>
               <p className="text-center pb-8 text-gray-700 w-3/4 mx-auto">Leave us a message or call us at <a href={`tel:${this.props.phone}`}>{this.props.formatPhone}</a></p>
               <form
                 name="contact"
@@ -46,6 +46,7 @@ export default class Index extends React.Component {
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={this.handleSubmit}
+                class="md:px-16 md:pb-8 lg:px-24"
               >
                 {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
                 <input type="hidden" name="form-name" value="contact" />

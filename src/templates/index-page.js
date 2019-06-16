@@ -41,11 +41,7 @@ export const IndexPageTemplate = ({
     <div
       className="w-screen h-screen flex content-center justify-center"
       style={{
-        backgroundImage: `url(${
-          !!hero.image.childImageSharp
-            ? hero.image.childImageSharp.fluid.src
-            : hero.image
-        })`,
+        backgroundImage: `url(${hero.image.publicURL})`,
         backgroundPosition: `top left`,
         backgroundSize: `cover`,
         backgroundAttachment: `fixed`
@@ -145,38 +141,42 @@ export const IndexPageTemplate = ({
     <Element name="appts">
       <section className="bg-gray-100">
         <div className="container mx-auto md:mt-24">
-        <div className="flex flex-col p-8 py-24 md:py-16 md:items-center lg:flex-row">
-          <div className="md:w-1/2 md:p-8 md:pt-0">
-            <img className="w-full h-full" src={appt.image.publicURL} alt="" />
-          </div>
-          <div className="pt-16 md:w-1/2 md:pt-0">
-            <div className="text-center">
-              <h3 className="text-4xl tracking-widest font-semibold text-center uppercase pb-8 md:mt-8">
-                Appointments
-              </h3>
-              <p className="pb-8 text-lg leading-relaxed text-gray-700">
-                Ready to make your appointment? Download the{" "}
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={appt.patient.publicURL}
-                >
-                  new patient form{" "}
+          <div className="flex flex-col p-8 py-24 md:py-16 md:items-center lg:flex-row">
+            <div className="md:w-1/2 md:p-8 md:pt-0">
+              <img
+                className="w-full h-full"
+                src={appt.image.publicURL}
+                alt=""
+              />
+            </div>
+            <div className="pt-16 md:w-1/2 md:pt-0">
+              <div className="text-center">
+                <h3 className="text-4xl tracking-widest font-semibold text-center uppercase pb-8 md:mt-8">
+                  Appointments
+                </h3>
+                <p className="pb-8 text-lg leading-relaxed text-gray-700">
+                  Ready to make your appointment? Download the{" "}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={appt.patient.publicURL}
+                  >
+                    new patient form{" "}
+                  </a>
+                  and bring it with you. You can call us at{" "}
+                  <a href={`tel:${settings.phone}`}>
+                    {formatPhone(settings.phone)}
+                  </a>{" "}
+                  or book an appointment online below.
+                </p>
+                <a href={appt.book} target="_blank" rel="noopener noreferrer">
+                  <button className="bg-ta-100 hover:bg-ta-200 text-white text-lg font-bold py-4 px-6 rounded uppercase tracking-wider shadow-lg">
+                    Book Appointment
+                  </button>
                 </a>
-                and bring it with you. You can call us at{" "}
-                <a href={`tel:${settings.phone}`}>
-                  {formatPhone(settings.phone)}
-                </a>{" "}
-                or book an appointment online below.
-              </p>
-              <a href={appt.book} target="_blank" rel="noopener noreferrer">
-                <button className="bg-ta-100 hover:bg-ta-200 text-white text-lg font-bold py-4 px-6 rounded uppercase tracking-wider shadow-lg">
-                  Book Appointment
-                </button>
-              </a>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </section>
     </Element>
@@ -266,11 +266,17 @@ export const IndexPageTemplate = ({
                       <a href={`mailto:${settings.email}`}>{settings.email}</a>
                     </li>
                   </ul>
-                  <p className="leading-loose lg:hidden xl:block" dangerouslySetInnerHTML={createMarkup(settings.address)} />
+                  <p
+                    className="leading-loose lg:hidden xl:block"
+                    dangerouslySetInnerHTML={createMarkup(settings.address)}
+                  />
                 </div>
 
                 <div className="pb-8 hidden md:hidden lg:block lg:w-1/3 xl:hidden">
-                  <p className="leading-loose" dangerouslySetInnerHTML={createMarkup(settings.address)} />
+                  <p
+                    className="leading-loose"
+                    dangerouslySetInnerHTML={createMarkup(settings.address)}
+                  />
                 </div>
 
                 <div className="md:w-1/2 md:pl-12 lg:w-1/3 lg:p-0 xl:w-1/2">
@@ -406,6 +412,7 @@ export const pageQuery = graphql`
         hero {
           title
           image {
+            publicURL
             childImageSharp {
               fluid(maxWidth: 2048, quality: 100) {
                 ...GatsbyImageSharpFluid

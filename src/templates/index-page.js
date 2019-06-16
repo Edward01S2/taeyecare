@@ -41,10 +41,11 @@ export const IndexPageTemplate = ({
     <div
       className="w-screen h-screen flex content-center justify-center"
       style={{
-        backgroundImage: `url('${hero.image.publicURL}')`,
-        backgroundPosition: `top left`,
+        backgroundImage: `url(${hero.image.publicURL})`,
+        //backgroundPosition: `top left`,
+        backgroundPosition: `center`,
         backgroundSize: `cover`,
-        backgroundAttachment: `fixed`
+        //backgroundAttachment: `fixed`
       }}
     >
       <div className="v-center p-4">

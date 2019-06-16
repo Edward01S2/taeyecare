@@ -39,7 +39,7 @@ export const IndexPageTemplate = ({
 }) => (
   <div>
     <div
-      className="w-screen h-screen flex content-center justify-center"
+      className="w-screen h-screen flex content-center justify-center lg:bg-fixed"
       style={{
         backgroundImage: `url(${hero.image.publicURL})`,
         //backgroundPosition: `top left`,

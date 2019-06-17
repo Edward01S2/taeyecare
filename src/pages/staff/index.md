@@ -44,12 +44,15 @@ doctors:
       Dr. Koyfman was born in Ukraine and raised in Brooklyn, New York. He
       received his bachelors degree at Penn State and then moved to England
       where he attended University of Surrey for his masters. He then graduated
-      top of his class from Inter- American University of Puerto Rico, School of
-      Optometry, where he received his Doctor of Optometry Degree. He is
-      currently licensed to practice therapeutic optometry. Dr. Koyfman has a
-      special interest in curing diseases. He did his residency at the Cedar
-      Springs clinic for ocular diseases. In his free time, he likes to spend
-      with his friends, and traveling the world.
+      top of his class from Inter-American University of Puerto Rico, School of
+      Optometry, where he received his Doctor of Optometry Degree.
+
+      <br /> <br />
+
+      He is currently licensed to practice therapeutic optometry. Dr. Koyfman
+      has a special interest in curing diseases. He did his residency at the
+      Cedar Springs clinic for ocular diseases. In his free time, he likes to
+      spend with his friends, and traveling the world.
     image: /img/kofyman.jpg
     name: Dr. Vladislav Kofyman
     title: O.D.

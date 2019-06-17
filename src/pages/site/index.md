@@ -14,7 +14,7 @@ settings:
   monday: '9:00 AM - 6:00 PM'
   phone: '8174684461'
   saturday: '9:00 AM - 4:00 PM'
-  sunday: '12:00 AM - 4:00 PM'
+  sunday: '12:00 PM - 4:00 PM'
   thursday: '9:00 AM - 6:00 PM'
   tuesday: '9:00 AM - 6:00 PM'
   wednesday: '10:00 AM - 7:00 PM'

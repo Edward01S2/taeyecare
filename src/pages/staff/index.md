@@ -54,7 +54,7 @@ doctors:
       Cedar Springs clinic for ocular diseases. In his free time, he likes to
       spend with his friends, and traveling the world.
     image: /img/kofyman.jpg
-    name: Dr. Vladislav Kofyman
+    name: Dr. Vladislav Koyfman
     title: O.D.
 staff:
   - image: /img/tiffany.jpg

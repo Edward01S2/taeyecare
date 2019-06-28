@@ -72,6 +72,21 @@ export default class Index extends React.Component {
                   </div>
                 </div>
                 <div className="field">
+                  <label className="block text-gray-700 text-sm font-semibold mb-2 tracking-wide" htmlFor={'phone'}>
+                    Phone
+                  </label>
+                  <div className="control">
+                    <input
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-3"
+                      type={'tel'}
+                      name={'phone'}
+                      onChange={this.handleChange}
+                      id={'phone'}
+                      required={true}
+                    />
+                  </div>
+                </div>
+                <div className="field">
                   <label className="block text-gray-700 text-sm font-semibold mb-2 tracking-wide" htmlFor={'email'}>
                     Email
                   </label>

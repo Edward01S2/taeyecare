@@ -1,4 +1,6 @@
-var proxy = require("http-proxy-middleware")
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -22,6 +24,22 @@ module.exports = {
         head: false,
         // Setting this parameter is also optional
         respectDNT: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-prismic`,
+      options: {
+        repositoryName: `taeye`,
+        accessToken: `${process.env.API_KEY}`,
+        linkResolver: ({ node, key, value }) => post => {
+          // URL for a product type
+        //   if (post.type === 'blog') {
+        //     return '/blog/' + post.uid;
+        //   }
+        //  // Backup for all other types
+        //   `/${post.uid}`
+        },
+        //htmlSerializer: () => prismicHtmlSerializer,
       },
     },
     {

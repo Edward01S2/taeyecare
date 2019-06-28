@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { Link } from "gatsby";
+import { Link, animateScroll } from 'react-scroll'
 
 import TaLogo from "../img/taeye_logo_white.svg";
 import Phone from "../img/phone-call.svg";
@@ -17,7 +17,13 @@ function formatPhone(num) {
   return null
 }
 
+
+
 const Footer = class extends React.Component {
+  scrollToTop() {
+    animateScroll.scrollToTop();
+  }
+
   render() {
     return (
       <footer>
@@ -25,11 +31,11 @@ const Footer = class extends React.Component {
           <div className="container mx-auto">
             <div className="flex flex-wrap md:justify-between">
               <div className="flex flex-col w-full md:w-1/5 md:items-center xl:items-start">
-                <Link to="/" >
+                <button onClick={this.scrollToTop} className="focus:outline-none">
                   <div>
                     <TaLogo className="h-10 w-auto xl:h-16"/>
                   </div>
-                </Link>
+                </button>
                 <div className="hidden md:block md:pt-3">
                   <ul className="list-reset text-sm">
                     <li className="text-white pb-1">@2019 Ta Eye Associates</li>
@@ -44,17 +50,38 @@ const Footer = class extends React.Component {
                     <h4 className="text-base font-bold tracking-widest uppercase">Company</h4>
                   </li>
                   <li className="pb-3">
-                    <Link to="work" className="text-white">
+                    <Link
+                      to="services"
+                      offset={-100}
+                      spy={true}
+                      smooth={true}
+                      duration={600}
+                      className="text-white"
+                    >
                       Services
                     </Link>
                   </li>
                   <li className="pb-3">
-                    <Link to="articles" className="text-white">
+                  <Link
+                      to="about"
+                      offset={-100}
+                      spy={true}
+                      smooth={true}
+                      duration={600}
+                      className="text-white"
+                    >
                       About
                     </Link>
                   </li>
                   <li className="pb-3">
-                    <Link to="services" className="text-white">
+                  <Link
+                      to="team"
+                      offset={-100}
+                      spy={true}
+                      smooth={true}
+                      duration={600}
+                      className="text-white"
+                    >
                       Team
                     </Link>
                   </li>
@@ -67,17 +94,29 @@ const Footer = class extends React.Component {
                     <h4 className="text-base font-bold tracking-widest uppercase">Resources</h4>
                   </li>
                   <li className="pb-3">
-                    <Link to="work" className="text-white">
+                  <Link
+                      to="appts"
+                      offset={-100}
+                      spy={true}
+                      smooth={true}
+                      duration={600}
+                      className="text-white"
+                    >
                       Appointments
                     </Link>
                   </li>
-                  <li className="pb-3">
-                    <Link to="services" className="text-white">
+                  <li className="pb-3 text-white">
                       Blog
-                    </Link>
                   </li>
                   <li className="pb-8">
-                    <Link to="articles" className="text-white">
+                  <Link
+                      to="contact"
+                      offset={-100}
+                      spy={true}
+                      smooth={true}
+                      duration={600}
+                      className="text-white"
+                    >
                       Contact
                     </Link>
                   </li>

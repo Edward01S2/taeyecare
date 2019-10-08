@@ -60,9 +60,6 @@ staff:
   - image: /img/tiffany.jpg
     name: Tiffany Hong
     title: Office Manager
-  - image: /img/dishali.jpg
-    name: Dishali Patel
-    title: Assistant Manager
   - image: /img/ana.jpg
     name: Ana Gomez
     title: Contact Lens Coordinator

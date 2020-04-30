@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
+import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
@@ -28,6 +30,24 @@ function formatPhone(num) {
   return null;
 }
 
+const modalStyles = {
+  overlay: {
+    backgroundColor: "rgba(160, 174, 192, 0.75)",
+    zIndex: "1000",
+  },
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    padding               : '0',
+  }
+};
+
+Modal.setAppElement('#___gatsby');
+
 export const IndexPageTemplate = ({
   hero,
   services,
@@ -36,8 +56,110 @@ export const IndexPageTemplate = ({
   settings,
   staff,
   image2
-}) => (
+}) => {
+  const [modalOpen, setModalOpen] = useState(true);
+  const [bannerOpen, setBannerOpen] = useState(false);
+
+  function closeModal(){
+    setModalOpen(false);
+    setBannerOpen(true);
+  }
+
+  function openModal() {
+    setModalOpen(true);
+  }
+
+return (
   <div>
+
+    {/* COVID19 STUFF */}
+    <Modal
+      isOpen={modalOpen}
+      onRequestClose={closeModal}
+      style={modalStyles}
+      contentLabel="Modal"
+    >
+      <div class="bg-white rounded-lg px-4 pt-5 pb-4 overflow-hidden shadow-xl transform transition-all sm:max-w-sm sm:w-full sm:p-6 md:max-w-md lg:max-w-lg xl:max-w-xl">
+        <div>
+          <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-red-100">
+            <svg class="h-16 w-16 text-red-500" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path></svg>
+          </div>
+          <div class="mt-3 text-center sm:mt-5">
+            <h3 class="text-2xl leading-6 font-bold tracking-wider text-gray-900">
+              COVID-19 UPDATES
+            </h3>
+            <div class="mt-2">
+              <p class="text-sm leading-7 text-gray-700 lg:text-base">
+                In light of COVID-19, we are in a reduced schedule at this time.
+              </p>
+              <p class="bg-gray-200 py-2 mt-2 font-bold rounded">
+                Starting May 4th, 2020<br/>Mon - Sat: 11AM - 5PM<br/>Sun: Closed
+              </p>
+              <p class="text-sm leading-7 text-gray-700 mt-2">
+                In order to adhere to social distancing, we ask that patients please come to their appointment unaccompanied (unless the patient is a minor or requires mobility assistance). If you are experiencing fever, cough, trouble breathing or have been in contact with someone that has been diagnosed with COVID-19, we kindly ask that you reschedule your appointment for another time.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5 sm:mt-6">
+          <span class="flex w-full rounded-md shadow-sm">
+            <button onClick={e => {
+              e.preventDefault();
+              closeModal();
+            }} type="button" class="inline-flex uppercase tracking-wider justify-center w-full rounded-md border border-transparent px-4 py-2 bg-ta-200 text-lg leading-6 font-medium text-white shadow-sm hover:bg-ta-300 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+              Close
+            </button>
+          </span>
+        </div>
+      </div>
+    </Modal>
+
+    {bannerOpen &&
+    <div class="fixed bottom-0 inset-x-0 pb-2 z-50 sm:pb-5">
+      <div class="max-w-screen-xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div class="p-2 rounded-lg bg-blue-900 shadow-lg sm:p-3">
+          <div class="flex items-center justify-between flex-wrap">
+            <div class="w-0 flex-1 flex items-center">
+              <span class="flex p-2 rounded-lg bg-ta-200">
+                <svg class="h-6 w-6 text-white" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
+                </svg>
+              </span>
+              <p class="ml-3 font-medium text-white truncate">
+                <span class="md:hidden">
+                  COVID-19 Updates!
+                </span>
+                <span class="hidden md:inline">
+                Coronavirus (COVID-19): Important information and updates
+                </span>
+              </p>
+            </div>
+            <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
+              <div class="rounded-md shadow-sm">
+                <a href="#" onClick={e => {
+                  e.preventDefault();
+                  openModal();
+                }}
+            class="flex items-center justify-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-ta-300 bg-white hover:text-ta-200 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
+                  Learn more
+                </a>
+              </div>
+            </div>
+            <div class="order-2 flex-shrink-0 sm:order-3 sm:ml-2">
+              <button onClick={() => setBannerOpen(!bannerOpen)} type="button" class="-mr-1 flex p-2 rounded-md hover:bg-ta-300 focus:outline-none focus:bg-ta-300 transition ease-in-out duration-150" aria-label="Dismiss">
+                <svg class="h-6 w-6 text-white" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+
+  {/* END COVID19-STUFF */}
+
     <div
       className="w-screen h-screen flex content-center justify-center lg:bg-fixed"
       style={{
@@ -363,6 +485,7 @@ export const IndexPageTemplate = ({
     </Element>
   </div>
 );
+              };
 
 // IndexPageTemplate.propTypes = {
 //   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),

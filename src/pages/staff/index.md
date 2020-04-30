@@ -66,9 +66,6 @@ staff:
   - image: /img/patricia.jpg
     name: Patricia Amaya
     title: Optometric Technician
-  - image: /img/zahraa.jpg
-    name: Zahraa Ileiwi
-    title: Optometric Technician
   - image: /img/marissa.jpg
     name: Marissa Estrada
     title: Optometric Technician

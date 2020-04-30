@@ -24,7 +24,7 @@ appointment:
   book: >-
     https://www.eyeexamsnow.com/TexasFlow?catalogId=11651&storeId=10851&langId=-1&clearExams=1&storeNumber=0275
   image: /img/appt.svg
-  patient: /img/patient-info.pdf
+  patient: /img/paperwork-2019.docx
 insurance:
   images:
     - /img/bcbs.svg

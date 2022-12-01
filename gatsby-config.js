@@ -27,26 +27,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-prismic`,
-      options: {
-        repositoryName: `taeye`,
-        accessToken: `${process.env.API_KEY}`,
-        schemas: {
-          404: require('./src/schemas/404.json'),
-          contact_submission: require('./src/schemas/contact_submission.json'),
-        },
-        linkResolver: ({ node, key, value }) => post => {
-          // URL for a product type
-        //   if (post.type === 'blog') {
-        //     return '/blog/' + post.uid;
-        //   }
-        //  // Backup for all other types
-        //   `/${post.uid}`
-        },
-        //htmlSerializer: () => prismicHtmlSerializer,
-      },
-    },
-    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {

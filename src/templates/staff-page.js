@@ -25,4 +25,3 @@ const StaffPage = ({ data }) => {
 
 
 export default StaffPage
-
